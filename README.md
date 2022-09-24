@@ -1,7 +1,21 @@
-# Tauri + React + Typescript
+# toolkit
+bundle of useful tools that I always use
+ 
+<img src="./res/output.png" alt="toolkit" width="60%" height="60%" >
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+---
 
-## Recommended IDE Setup
+## Stack
+It is created using those amazing technologies:
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Tauri](https://tauri.studio/)
+- And many others!
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+---
+
+## License
+>You can check out the full license [here](https://github.com/hafizhaziq307/toolkit/blob/main/LICENSE)
+
+This project is licensed under the terms of the **MIT** license.
