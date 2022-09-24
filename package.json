@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
-    "watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch --minify"
+    "watch": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch --minify"
   },
   "dependencies": {
     "@tauri-apps/api": "^1.0.2",
