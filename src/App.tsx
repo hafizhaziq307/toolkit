@@ -8,12 +8,13 @@ import WordTranform from "./pages/text/WordTransform";
 function App() {
   useEffect(() => {
     // 👇 add class to body element
-    document.body.classList.add("bg-stone-50");
+    document.body.classList.add("bg-[#0D1117]");
+    document.body.classList.add("text-zinc-300");
   }, []);
 
   return (
     <>
-      <div className="mx-auto max-w-4xl space-y-4 p-4">
+      <div className="mx-auto min-h-screen max-w-4xl space-y-4 p-4">
         <Routes>
           <Route path="/" element={<ToolList />} />
           <Route path="/text_tool_word_count" element={<WordCount />} />

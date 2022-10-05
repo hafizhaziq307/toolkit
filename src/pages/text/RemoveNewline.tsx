@@ -18,21 +18,21 @@ function RemoveNewline() {
           placeholder="type something..."
           cols={30}
           rows={20}
-          className="w-full resize-none rounded-md bg-white p-3 text-sm shadow-md ring-1 ring-stone-300 placeholder:text-base focus:shadow-none focus:outline-none focus:ring-2 focus:ring-indigo-600"
+          className="w-full resize-none rounded-md bg-[#1B2026] p-3 text-sm shadow-md ring-1 ring-transparent placeholder:text-base focus:shadow-none focus:outline-none focus:ring-2 focus:ring-amber-600"
         ></textarea>
 
         <div className="flex justify-end space-x-2">
           <button
             onClick={removeAllNewlines}
             type="button"
-            className="rounded-md bg-black px-4 py-2 font-medium text-white hover:bg-black/90 active:bg-stone-700"
+            className="rounded-md bg-[#1B2026] px-4 py-2 font-medium hover:bg-[#1B2026]/80 hover:text-amber-600"
           >
             Remove All Newlines
           </button>
           <button
             onClick={clear}
             type="button"
-            className="rounded-md bg-black px-4 py-2 font-medium text-white hover:bg-black/90 active:bg-stone-700"
+            className="rounded-md bg-[#1B2026] px-4 py-2 font-medium hover:bg-[#1B2026]/80 hover:text-amber-600"
           >
             Clear
           </button>

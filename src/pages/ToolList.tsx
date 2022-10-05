@@ -37,20 +37,20 @@ function ToolList() {
   return (
     <>
       <header className="flex items-center space-x-2">
-        <div className="text-lg">Home</div>
+        <div className="text-lg font-medium text-amber-600">Home</div>
       </header>
 
       <section className="relative">
         <input
           onChange={searching}
-          className="w-full rounded py-2 pl-2 pr-10 text-sm ring-1 ring-stone-300 focus:outline-none focus:ring-2 focus:ring-indigo-600"
+          className="w-full rounded bg-[#1B2026] py-2 pl-2 pr-10 text-sm ring-1 ring-transparent focus:outline-none  focus:ring-amber-600"
           type="text"
           placeholder="Search"
         />
 
-        <span className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2 text-stone-600">
+        <span className="pointer-events-none absolute top-1/2 right-4 -translate-y-1/2">
           <svg
-            className="h-5 w-5"
+            className="h-5 w-5 "
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
             fill="currentColor"
@@ -60,20 +60,17 @@ function ToolList() {
         </span>
       </section>
 
-      <section>
-        <div className="flex">
-          {filteredSearch.map((tool) => (
-            <Link
-              className="group relative m-3 block h-40 w-40 text-sm font-medium focus:outline-none"
-              to={tool.link}
-            >
-              <span className="absolute inset-0 h-full w-full border-2 border-dashed border-black"></span>
-              <span className="grid h-full w-full place-content-center whitespace-pre-wrap border-2 border-black bg-white text-center text-lg capitalize transition-transform group-hover:-translate-x-1.5 group-hover:-translate-y-1.5">
-                {tool.title.replace(/\s/g, "\n")}
-              </span>
-            </Link>
-          ))}
-        </div>
+      <section className="grid grid-cols-4 gap-4 rounded-sm p-5 ring-2 ring-[#1B2026]">
+        {filteredSearch.map((tool) => (
+          <Link
+            className="group relative block text-sm font-medium focus:outline-none"
+            to={tool.link}
+          >
+            <span className="grid h-full w-full place-content-center whitespace-pre-wrap rounded-md bg-[#1B2026] py-2 text-center text-lg capitalize shadow-md transition-transform group-hover:-translate-y-1.5 group-hover:text-amber-600">
+              {tool.title.replace(/\s/g, "\n")}
+            </span>
+          </Link>
+        ))}
       </section>
     </>
   );

@@ -37,20 +37,22 @@ function WordCount() {
         onChange={handleChange}
         value={word}
         placeholder="type something..."
-        className="w-full resize-none rounded-md bg-white p-3 text-sm shadow-md ring-1 ring-stone-300 placeholder:text-base focus:shadow-none focus:outline-none focus:ring-2 focus:ring-indigo-600"
+        className="w-full resize-none rounded-md bg-[#1B2026] p-3 text-sm shadow-md ring-1 ring-transparent placeholder:text-base focus:shadow-none focus:outline-none focus:ring-2 focus:ring-amber-600"
       ></textarea>
 
-      <div className="grid grid-cols-3 divide-x-2 divide-stone-300 rounded-md bg-white p-3 shadow-md ring-1 ring-stone-300">
+      <div className="grid grid-cols-3 divide-x-8 divide-dotted divide-[#0D1117] rounded-md bg-[#1B2026] p-3 shadow-md ring-1 ring-[#1B2026]">
         <div className="text-center">
-          <div className="text-2xl font-medium">{wordCount}</div>
+          <div className="text-2xl font-medium text-amber-600">{wordCount}</div>
           <div className="text-sm font-[350]">Words</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl font-medium">{charcount}</div>
+          <div className="text-2xl font-medium text-amber-600">{charcount}</div>
           <div className="text-sm font-[350]">Characters</div>
         </div>
         <div className="text-center">
-          <div className="text-2xl font-medium">{charNoSpacecount}</div>
+          <div className="text-2xl font-medium text-amber-600">
+            {charNoSpacecount}
+          </div>
           <div className="text-sm font-[350]">Characters Without Space</div>
         </div>
       </div>
@@ -59,7 +61,7 @@ function WordCount() {
         <button
           onClick={clear}
           type="button"
-          className="rounded-md bg-black px-4 py-2 font-medium text-white hover:bg-black/90 active:bg-stone-700"
+          className="rounded-md bg-[#1B2026] px-4 py-2 font-medium hover:bg-[#1B2026]/80 hover:text-amber-600"
         >
           Clear
         </button>
