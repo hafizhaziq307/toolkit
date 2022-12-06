@@ -16,6 +16,8 @@ QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_lar
 Average color Detector | [fast-average-color](https://github.com/fast-average-color/fast-average-color) | :white_large_square: | 
 tailwind color similarity | none | :white_large_square: | 
 malaysia to UTC time | none | :white_large_square: | 
+Crop Image | [cropper.js](https://github.com/oscarkey/cropper.js) | :white_large_square: | 
+
 ---
 
 ## Stack
