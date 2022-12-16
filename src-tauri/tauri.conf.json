@@ -7,7 +7,7 @@
   },
   "package": {
     "productName": "toolkit",
-    "version": "0.0.2"
+    "version": "0.1.0"
   },
   "tauri": {
     "allowlist": {
@@ -55,12 +55,13 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 800,
-        "minHeight": 800,
+        "height": 650,
+        "minHeight": 650,
         "resizable": true,
         "title": "toolkit",
         "width": 800, 
-        "maxWidth": 800
+        "minWidth": 800,
+        "center": true
       }
     ]
   }

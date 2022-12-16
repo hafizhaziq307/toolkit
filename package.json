@@ -11,22 +11,27 @@
     "watch": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch --minify"
   },
   "dependencies": {
-    "@tauri-apps/api": "^1.1.0",
+    "@heroicons/react": "^2.0.13",
+    "@tauri-apps/api": "^1.2.0",
+    "fast-average-color": "^9.1.1",
+    "qr-scanner": "^1.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^1.1.1",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tauri-apps/cli": "^1.2.2",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.17",
-    "prettier": "^2.7.1",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "react-router-dom": "^6.4.0",
-    "tailwindcss": "^3.1.8",
+    "tailwind-scrollbar": "^2.0.1",
+    "tailwindcss": "^3.2.4",
     "typescript": "^4.6.4",
     "vite": "^3.0.2"
   }

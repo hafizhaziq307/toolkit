@@ -1,26 +1,69 @@
-import { Routes, Route, Link } from "react-router-dom";
-import { useEffect } from "react";
-import ToolList from "./pages/ToolList";
-import WordCount from "./pages/text/WordCount";
-import RemoveNewline from "./pages/text/RemoveNewline";
-import WordTranform from "./pages/text/WordTransform";
+import { Routes, Route } from "react-router-dom";
+
+import { TextCount } from "./pages/TextCount";
+import { RemoveNewline } from "./pages/RemoveNewline";
+import { TextTransform } from "./pages/TextTransform";
+import InsertGenerator from "./pages/InsertGenerator";
+import { QrCodeScanner } from "./pages/QrCodeScanner";
+import { AverageColorExtractor } from "./pages/AverageColorExtractor";
+import { TailwindColorSimilarity } from "./pages/TailwindColorSimilarity";
+import { Tools } from "./pages/Tools";
+import { Aside } from "./components/Aside";
+import { useState } from "react";
+import { tools } from "./data";
 
 function App() {
-  useEffect(() => {
-    // 👇 add class to body element
-    document.body.classList.add("bg-[#0D1117]");
-    document.body.classList.add("text-zinc-300");
-  }, []);
+  const [filteredTools, setFilteredTools] = useState(tools);
+  const [activeTag, setActiveTag] = useState("");
+
+  const searching = (valSearch: any) => {
+    if (valSearch === "") {
+      setFilteredTools(tools);
+    } else {
+      setFilteredTools(
+        tools.filter(
+          (tool) => tool.tag.toLowerCase() === valSearch.toLowerCase()
+        )
+      );
+    }
+
+    setActiveTag(valSearch);
+  };
 
   return (
     <>
-      <div className="mx-auto min-h-screen max-w-4xl space-y-4 p-4">
-        <Routes>
-          <Route path="/" element={<ToolList />} />
-          <Route path="/text_tool_word_count" element={<WordCount />} />
-          <Route path="/text_tool_remove_newline" element={<RemoveNewline />} />
-          <Route path="/text_tool_word_transforms" element={<WordTranform />} />
-        </Routes>
+      <div className="flex min-h-screen w-full gap-4 p-4">
+        <Aside
+          searching={searching}
+          setActiveTag={setActiveTag}
+          activeTag={activeTag}
+        />
+
+        <main className="mt-2 w-full space-y-6">
+          <Routes>
+            <Route path="/" element={<Tools filteredTools={filteredTools} />} />
+
+            <Route path="/text_tool_word_count" element={<TextCount />} />
+            <Route
+              path="/text_tool_remove_newline"
+              element={<RemoveNewline />}
+            />
+            <Route
+              path="/text_tool_word_transforms"
+              element={<TextTransform />}
+            />
+            <Route path="/sql_insert_generator" element={<InsertGenerator />} />
+            <Route path="/qrcode_scanner" element={<QrCodeScanner />} />
+            <Route
+              path="/tailwind_color_similarity"
+              element={<TailwindColorSimilarity />}
+            />
+            <Route
+              path="/average_color_extractor"
+              element={<AverageColorExtractor />}
+            />
+          </Routes>
+        </main>
       </div>
     </>
   );
