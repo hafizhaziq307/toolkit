@@ -1,10 +1,8 @@
 import { FastAverageColor } from "fast-average-color";
 import { useRef, useState, useEffect } from "react";
-import {
-  ClipboardDocumentListIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
 import { isEmpty } from "../../helpers";
+import { CopyButton } from "../../components/Buttons/CopyButton";
+import { ClearButton } from "../../components/Buttons/ClearButton";
 
 export const AverageColorExtractor = () => {
   const [averageColor, setAverageColor] = useState("");
@@ -57,13 +55,7 @@ export const AverageColorExtractor = () => {
 
       <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
         <header className="flex items-center justify-end border-b border-gray-600 p-2">
-          <button
-            type="button"
-            className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-            onClick={clear}
-          >
-            <TrashIcon className="h-5 w-5" title="clear" />
-          </button>
+          <ClearButton onClick={clear} />
         </header>
 
         <div
@@ -99,13 +91,8 @@ export const AverageColorExtractor = () => {
                 ></div>
                 <span className="text-xl">{averageColor}</span>
               </div>
-              <button
-                type="button"
-                className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-                onClick={copy}
-              >
-                <ClipboardDocumentListIcon className="h-5 w-5" title="copy" />
-              </button>
+
+              <CopyButton onClick={copy} />
             </div>
           </footer>
         )}

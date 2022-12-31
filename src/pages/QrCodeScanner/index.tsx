@@ -6,6 +6,7 @@ import {
   ExclamationCircleIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
+import { ClearButton } from "../../components/Buttons/ClearButton";
 
 export const QrCodeScanner = () => {
   const [generatedLink, setGeneratedLink] = useState("");
@@ -45,13 +46,7 @@ export const QrCodeScanner = () => {
 
       <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
         <header className="flex items-center justify-end border-b border-gray-600 p-2">
-          <button
-            type="button"
-            className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-            onClick={clear}
-          >
-            <TrashIcon className="h-5 w-5" title="clear" />
-          </button>
+          <ClearButton onClick={clear} />
         </header>
 
         <div className="space-y-4 rounded-b-lg py-2 px-4">

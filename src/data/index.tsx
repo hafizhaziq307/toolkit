@@ -1,9 +1,9 @@
 import {
   Bars3BottomLeftIcon,
-  CircleStackIcon,
   PaintBrushIcon,
   QrCodeIcon,
   SwatchIcon,
+  CalculatorIcon,
 } from "@heroicons/react/24/outline";
 
 export const tools = [
@@ -17,7 +17,7 @@ export const tools = [
   {
     title: "remove newline",
     tag: "text",
-    link: "text_tool_remove_newline",
+    link: "remove_newline",
     description: "Remove all newlines in text",
 
     icon: <Bars3BottomLeftIcon className="h-6 w-6 text-rose-500" />,
@@ -25,19 +25,11 @@ export const tools = [
   {
     title: "text transforms",
     tag: "text",
-    link: "text_tool_word_transforms",
+    link: "text_transform",
     description: "Uppercase, lowercase and capitalize the text",
 
     icon: <Bars3BottomLeftIcon className="h-6 w-6 text-teal-500" />,
   },
-  //   {
-  //     title: "Insert Generator",
-  //     tag: "sql",
-  //     link: "sql_insert_generator",
-  //   description: "",
-
-  //     icon: <CircleStackIcon className="h-6 w-6 text-amber-500" />,
-  //   },
   {
     title: "QR Code Scanner",
     tag: "QR Code",
@@ -49,7 +41,7 @@ export const tools = [
   {
     title: "Tailwind Color Similarity",
     tag: "Color",
-    link: "tailwind_color_similarity",
+    link: "color_similarity",
     description: "Get similar color in Tailwind CSS using hexcode",
 
     icon: <SwatchIcon className="h-6 w-6 text-emerald-500" />,
@@ -61,6 +53,14 @@ export const tools = [
     description: "Get average color using image",
 
     icon: <PaintBrushIcon className="h-6 w-6 text-indigo-500" />,
+  },
+  {
+    title: "Gear Calc",
+    tag: "Epic Seven",
+    link: "gear_calc",
+    description: "Calculate Epic Seven gear score",
+
+    icon: <CalculatorIcon className="h-6 w-6 text-fuchsia-500" />,
   },
 ];
 
@@ -321,3 +321,128 @@ export const tailwind_colors = [
   { title: "white", hexcode: "#FFFFFF" },
   { title: "black", hexcode: "#000000" },
 ];
+
+export const gear_calc_data = {
+  substats: [
+    {
+      id: 1,
+      label: "Attack %",
+      maxPerRoll: 8,
+      scoreMultiplier: 1,
+    },
+    {
+      id: 2,
+      label: "Defense %",
+      maxPerRoll: 8,
+      scoreMultiplier: 1,
+    },
+    {
+      id: 3,
+      label: "Effectiveness %",
+      maxPerRoll: 8,
+      scoreMultiplier: 1,
+    },
+    {
+      id: 4,
+      label: "Effect Resistence %",
+      maxPerRoll: 8,
+      scoreMultiplier: 1,
+    },
+    {
+      id: 5,
+      label: "Health %",
+      maxPerRoll: 8,
+      scoreMultiplier: 1,
+    },
+    {
+      id: 6,
+      label: "Speed",
+      maxPerRoll: 4,
+      scoreMultiplier: 1.9,
+    },
+    {
+      id: 7,
+      label: "Crit chance",
+      maxPerRoll: 5,
+      scoreMultiplier: 1.5,
+    },
+    {
+      id: 8,
+      label: "Crit Damage",
+      maxPerRoll: 7,
+      scoreMultiplier: 1.1,
+    },
+    {
+      id: 9,
+      label: "Attack (flat)",
+      maxPerRoll: 47,
+      scoreMultiplier: 0.1,
+    },
+    {
+      id: 10,
+      label: "Defense (flat)",
+      maxPerRoll: 34,
+      scoreMultiplier: 0.17,
+    },
+    {
+      id: 11,
+      label: "Health (flat)",
+      maxPerRoll: 212,
+      scoreMultiplier: 0.02,
+    },
+  ],
+
+  gearLevels: [
+    {
+      id: 1,
+      label: "72 - 85",
+      value: 8,
+    },
+  ],
+
+  rarities: [
+    {
+      id: 1,
+      label: "Heroic",
+      value: 3,
+    },
+    {
+      id: 2,
+      label: "Epic",
+      value: 4,
+    },
+  ],
+
+  enhanceLevels: [
+    {
+      id: 1,
+      label: "+0 +1 +2",
+      value: 0,
+    },
+    {
+      id: 2,
+      label: "+3 +4 +5",
+      value: 1,
+    },
+    {
+      id: 3,
+      label: "+6 +7 +8",
+      value: 2,
+    },
+    {
+      id: 4,
+      label: "+9 +10 +11",
+      value: 3,
+    },
+    {
+      id: 5,
+      label: "+12 +13 +14",
+      value: 4,
+    },
+    {
+      id: 6,
+      label: "+15",
+      value: 5,
+    },
+  ],
+};

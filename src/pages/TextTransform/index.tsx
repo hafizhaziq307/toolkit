@@ -1,9 +1,6 @@
 import { useState } from "react";
-
-import {
-  ClipboardDocumentListIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
+import { CopyButton } from "../../components/Buttons/CopyButton";
+import { ClearButton } from "../../components/Buttons/ClearButton";
 
 export const TextTransform = () => {
   const [text, setText] = useState("");
@@ -73,21 +70,8 @@ export const TextTransform = () => {
           </div>
 
           <div className="flex items-center gap-1">
-            <button
-              type="button"
-              className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-              onClick={copy}
-            >
-              <ClipboardDocumentListIcon className="h-5 w-5" title="copy" />
-            </button>
-
-            <button
-              type="button"
-              className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-              onClick={clear}
-            >
-              <TrashIcon className="h-5 w-5" title="clear" />
-            </button>
+            <CopyButton onClick={copy} />
+            <ClearButton onClick={clear} />
           </div>
         </header>
 

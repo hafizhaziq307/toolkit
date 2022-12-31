@@ -1,9 +1,10 @@
 import { TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { ClearButton } from "../../components/Buttons/ClearButton";
 import { tailwind_colors } from "../../data";
 import { Result } from "./Result";
 
-export const TailwindColorSimilarity = () => {
+export const ColorSimilarity = () => {
   const [text, setText] = useState("");
   const [resultColors, setResultColors] = useState<any>([]);
 
@@ -82,13 +83,8 @@ export const TailwindColorSimilarity = () => {
             >
               <MagnifyingGlassIcon className="h-5 w-5" title="search" />
             </button>
-            <button
-              type="button"
-              className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-              onClick={clear}
-            >
-              <TrashIcon className="h-5 w-5" title="clear" />
-            </button>
+
+            <ClearButton onClick={clear} />
           </div>
         </header>
 

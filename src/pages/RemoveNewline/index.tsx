@@ -1,8 +1,6 @@
-import {
-  ClipboardDocumentListIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
 import { useState } from "react";
+import { ClearButton } from "../../components/Buttons/ClearButton";
+import { CopyButton } from "../../components/Buttons/CopyButton";
 
 export const RemoveNewline = () => {
   const [text, setText] = useState("");
@@ -13,6 +11,13 @@ export const RemoveNewline = () => {
 
   const clear = () => {
     setText("");
+  };
+
+  const copy = () => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => alert(`Copied!`))
+      .catch((error) => alert(`Copy failed! ${error}`));
   };
 
   return (
@@ -33,20 +38,8 @@ export const RemoveNewline = () => {
           </div>
 
           <div className="flex items-center gap-1">
-            <button
-              type="button"
-              className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-            >
-              <ClipboardDocumentListIcon className="h-5 w-5" title="copy" />
-            </button>
-
-            <button
-              type="button"
-              className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
-              onClick={clear}
-            >
-              <TrashIcon className="h-5 w-5" title="clear" />
-            </button>
+            <CopyButton onClick={copy} />
+            <ClearButton onClick={clear} />
           </div>
         </header>
 
