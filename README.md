@@ -11,11 +11,11 @@ bundle of useful tools that I always use
 text count | List all new or modified files | :white_check_mark: | 
 text transform | none | :white_check_mark: | 
 remove newline | none | :white_check_mark: | 
-sql insert | none | :white_check_mark: | 
-QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_large_square: | 
-Average color Detector | [fast-average-color](https://github.com/fast-average-color/fast-average-color) | :white_large_square: | 
-tailwind color similarity | none | :white_large_square: | 
-Crop Image | [cropper.js](https://github.com/oscarkey/cropper.js) | :white_large_square: | 
+gear calc | none | :white_check_mark: | 
+QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_check_mark: | 
+Average color Detector | [fast-average-color](https://github.com/fast-average-color/fast-average-color) | :white_check_mark: | 
+tailwind color similarity | none | :white_check_mark: | 
+insert generator | [excel.js](https://github.com/exceljs/exceljs) | :white_large_square: | 
 
 ---
 
