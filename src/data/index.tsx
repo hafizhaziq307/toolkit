@@ -4,6 +4,7 @@ import {
   QrCodeIcon,
   SwatchIcon,
   CalculatorIcon,
+  DocumentTextIcon,
 } from "@heroicons/react/24/outline";
 
 export const tools = [
@@ -61,6 +62,14 @@ export const tools = [
     description: "Calculate Epic Seven gear score",
 
     icon: <CalculatorIcon className="h-6 w-6 text-fuchsia-500" />,
+  },
+  {
+    title: "Excel to Sql",
+    tag: "SQL",
+    link: "excel_to_sql",
+    description: "Convert excel to sql",
+
+    icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
   },
 ];
 

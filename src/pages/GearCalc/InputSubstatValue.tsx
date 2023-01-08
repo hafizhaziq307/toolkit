@@ -2,7 +2,7 @@ export const InputSubstatValue = (props: any) => {
   return (
     <input
       type="text"
-      className="rounded bg-gray-700 p-2"
+      className="input"
       placeholder="0"
       value={props.currentSubstat.value}
       onChange={(e) =>

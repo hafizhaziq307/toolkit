@@ -5,7 +5,7 @@ export const SelectGearLevel = (props: any) => {
     <select
       value={props.currentGearLevel}
       onChange={(e) => props.setCurrentGearLevel(e.target.value)}
-      className=" w-full rounded bg-gray-700 p-2 capitalize"
+      className="select"
     >
       <option value="">Gear Level</option>
       {gear_calc_data.gearLevels.map((item) => (

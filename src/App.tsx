@@ -11,6 +11,7 @@ import { Aside } from "./components/Aside";
 import { useState } from "react";
 import { tools } from "./data";
 import { GearCalc } from "./pages/GearCalc";
+import { ExcelToSql } from "./pages/ExcelToSql";
 
 function App() {
   const [filteredTools, setFilteredTools] = useState(tools);
@@ -43,6 +44,7 @@ function App() {
             <Route path="/text_transform" element={<TextTransform />} />
             <Route path="/qrcode_scanner" element={<QrCodeScanner />} />
             <Route path="/color_similarity" element={<ColorSimilarity />} />
+            <Route path="/excel_to_sql" element={<ExcelToSql />} />
             <Route
               path="/average_color_extractor"
               element={<AverageColorExtractor />}

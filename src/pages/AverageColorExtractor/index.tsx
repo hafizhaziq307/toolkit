@@ -21,8 +21,6 @@ export const AverageColorExtractor = () => {
   const getAverageColor = (imgElement: any) => {
     const fac = new FastAverageColor();
 
-    console.log(imgElement);
-
     fac
       .getColorAsync(imgElement, { algorithm: "simple", mode: "precision" })
       .then((color) => setAverageColor(color.hex))
@@ -53,16 +51,12 @@ export const AverageColorExtractor = () => {
     <>
       <header className="text-lg font-medium">Average Color Extractor</header>
 
-      <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
-        <header className="flex items-center justify-end border-b border-gray-600 p-2">
+      <div className="card">
+        <header className="card-header flex justify-end">
           <ClearButton onClick={clear} />
         </header>
 
-        <div
-          className={`rounded-b-lg py-2 px-4 ${
-            uploadedImage !== "" ? "space-y-4" : ""
-          }`}
-        >
+        <div className={`card-body${uploadedImage !== "" ? "space-y-4" : ""}`}>
           <img
             ref={imageRef}
             src={uploadedImage}
@@ -77,23 +71,21 @@ export const AverageColorExtractor = () => {
             ref={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
-            className="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-blue-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
+            className="uplaod-file"
           />
         </div>
 
         {!isEmpty(averageColor) && (
-          <footer className="border-t border-gray-600 p-3">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <div
-                  className="h-10 w-10"
-                  style={{ backgroundColor: averageColor }}
-                ></div>
-                <span className="text-xl">{averageColor}</span>
-              </div>
-
-              <CopyButton onClick={copy} />
+          <footer className="card-footer flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <div
+                className="h-10 w-10 border"
+                style={{ backgroundColor: averageColor }}
+              />
+              <span className="text-xl">{averageColor}</span>
             </div>
+
+            <CopyButton onClick={copy} />
           </footer>
         )}
       </div>

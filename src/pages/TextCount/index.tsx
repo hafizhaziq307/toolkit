@@ -33,22 +33,22 @@ export const TextCount = () => {
     <>
       <header className="text-lg font-medium">Text Count</header>
 
-      <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
-        <header className="flex items-center justify-end border-b border-gray-600 p-2">
+      <div className="card">
+        <header className="card-header flex justify-end">
           <ClearButton onClick={clear} />
         </header>
 
-        <div className="rounded-b-lg py-2 px-4">
+        <div className="card-body">
           <textarea
             onChange={handleChange}
             value={word}
             rows={20}
-            className="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none"
+            className="textarea"
             placeholder="Write something..."
           ></textarea>
         </div>
 
-        <footer className="grid grid-cols-3 divide-x-2 divide-gray-600 border-t border-gray-600 p-3">
+        <footer className="card-footer grid grid-cols-3 divide-x-2 divide-gray-600">
           <div className="text-center">
             <div className="text-2xl font-medium text-blue-600">
               {wordCount}

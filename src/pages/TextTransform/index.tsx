@@ -38,12 +38,24 @@ export const TextTransform = () => {
     <>
       <header className="text-lg font-medium">Text Transform</header>
 
-      <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
-        <header className="flex items-center justify-between border-b border-gray-600 p-2">
-          <div className="flex gap-3">
+      <div className="card mb-4">
+        <header className="card-header flex justify-end">
+          <CopyButton onClick={copy} />
+          <ClearButton onClick={clear} />
+        </header>
+
+        <div className="card-body space-y-4">
+          <textarea
+            onChange={(e) => setText(e.target.value)}
+            value={text}
+            rows={20}
+            className="textarea"
+            placeholder="Write something..."
+          ></textarea>
+
+          <div className="flex gap-2">
             <button
-              type="button"
-              className="rounded bg-blue-600 p-2 text-sm hover:bg-blue-700"
+              className="btn-primary"
               title="capitalize"
               onClick={capitalize}
             >
@@ -51,8 +63,7 @@ export const TextTransform = () => {
             </button>
 
             <button
-              type="button"
-              className="rounded bg-blue-600 p-2 text-sm hover:bg-blue-700"
+              className="btn-primary"
               title="lowercase"
               onClick={lowercase}
             >
@@ -60,29 +71,13 @@ export const TextTransform = () => {
             </button>
 
             <button
-              type="button"
-              className="rounded bg-blue-600 p-2 text-sm hover:bg-blue-700"
+              className="btn-primary"
               title="uppercase"
               onClick={uppercase}
             >
               Uppercase
             </button>
           </div>
-
-          <div className="flex items-center gap-1">
-            <CopyButton onClick={copy} />
-            <ClearButton onClick={clear} />
-          </div>
-        </header>
-
-        <div className="rounded-b-lg py-2 px-4">
-          <textarea
-            onChange={(e) => setText(e.target.value)}
-            value={text}
-            rows={20}
-            className="w-full bg-transparent text-sm text-white placeholder-gray-400 focus:outline-none"
-            placeholder="Write something..."
-          ></textarea>
         </div>
       </div>
     </>

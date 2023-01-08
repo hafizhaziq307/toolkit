@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HandThumbUpIcon } from "@heroicons/react/24/solid";
 
 import { isEmpty } from "../../helpers";
@@ -132,12 +132,12 @@ export const GearCalc = () => {
       <header className="text-lg font-medium">Gear Calc</header>
 
       <div className="space-y-6 text-sm lg:text-base">
-        <div className=" mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
-          <header className="flex items-center justify-end border-b border-gray-600 p-2">
+        <div className="card">
+          <header className="card-header flex justify-end">
             <ClearButton onClick={clear} />
           </header>
 
-          <div className="space-y-4 rounded-b-lg py-2 px-4">
+          <div className="card-body space-y-4">
             <section className="flex gap-4">
               <SelectGearRarity
                 setCurrentGearRarity={setCurrentGearRarity}
@@ -178,7 +178,7 @@ export const GearCalc = () => {
 
             <section>
               <button
-                className="w-full rounded bg-blue-600 px-4 py-2 font-medium hover:bg-blue-500"
+                className="btn-primary"
                 onClick={() => generateResult(currentSubstats)}
               >
                 Calculate
@@ -188,10 +188,10 @@ export const GearCalc = () => {
         </div>
 
         {!isEmpty(result) && (
-          <div className="w-full rounded-lg border border-gray-600 bg-gray-800">
-            <header className=" border-b border-gray-600 p-2">Result</header>
+          <div className="card">
+            <header className="card-header">Result</header>
 
-            <div className="space-y-6 rounded-b-lg py-2 px-4">
+            <div className="card-body space-y-6">
               <table className="w-full table-auto border-collapse">
                 <tr className="odd:bg-gray-700 even:bg-gray-800">
                   <th className="border border-gray-500 p-3">Title</th>

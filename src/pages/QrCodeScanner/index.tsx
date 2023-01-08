@@ -44,12 +44,12 @@ export const QrCodeScanner = () => {
     <>
       <header className="text-lg font-medium">QR Code Scanner</header>
 
-      <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
-        <header className="flex items-center justify-end border-b border-gray-600 p-2">
+      <div className="card">
+        <header className="card-header flex justify-end">
           <ClearButton onClick={clear} />
         </header>
 
-        <div className="space-y-4 rounded-b-lg py-2 px-4">
+        <div className="card-body space-y-4">
           {!isEmpty(generatedLink) && (
             <img
               src={uploadedImage}
@@ -63,12 +63,12 @@ export const QrCodeScanner = () => {
             ref={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
-            className="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-blue-50 file:py-2 file:px-4 file:text-sm file:font-semibold file:text-blue-700 hover:file:bg-blue-100"
+            className="upload-file"
           />
         </div>
 
         {!isEmpty(uploadedImage) && (
-          <footer className="border-t border-gray-600 p-3">
+          <footer className="card-footer">
             {!isEmpty(generatedLink) && generatedLink === "error" && (
               <div className="flex items-center gap-1 rounded-lg bg-red-100 p-4 text-sm text-red-700">
                 <ExclamationCircleIcon className="h-7 w-7 text-red-700" />

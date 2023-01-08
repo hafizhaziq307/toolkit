@@ -5,7 +5,7 @@ export const SelectEnhanceLevel = (props: any) => {
     <select
       value={props.currentEnchanceLevel}
       onChange={(e) => props.setCurrentEnchanceLevel(e.target.value)}
-      className="col-span-4 w-full rounded bg-gray-700 p-2 capitalize"
+      className="select col-span-4"
     >
       <option value="">Enhance Level</option>
       {gear_calc_data.enhanceLevels.map((item) => (

@@ -60,7 +60,7 @@ export const ColorSimilarity = () => {
     <>
       <header className="text-lg font-medium">Tailwind Color Similarity</header>
 
-      <div className="mb-4 w-full rounded-lg border border-gray-600 bg-gray-800">
+      <div className="card mb-4">
         <header
           className={`flex items-center justify-between gap-4 p-2 text-sm ${
             resultColors.length !== 0 ? "border-b border-gray-600" : ""
@@ -68,7 +68,7 @@ export const ColorSimilarity = () => {
         >
           <input
             type="text"
-            className="w-full border border-none bg-transparent p-2 text-xl focus:outline-none"
+            className="input text-xl"
             placeholder="Example: #FF5566"
             maxLength={7}
             value={text.toUpperCase()}
@@ -77,7 +77,6 @@ export const ColorSimilarity = () => {
 
           <div className="flex">
             <button
-              type="button"
               className="rounded p-2 text-gray-400 hover:bg-gray-600 hover:text-white"
               onClick={calcColors}
             >
@@ -89,7 +88,7 @@ export const ColorSimilarity = () => {
         </header>
 
         {resultColors.length !== 0 && (
-          <div className="rounded-b-lg py-2 px-4">
+          <div className="card-body">
             <header className="mb-3 text-lg font-medium">Result</header>
 
             <div className="space-y-6">

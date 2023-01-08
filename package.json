@@ -14,13 +14,16 @@
     "@heroicons/react": "^2.0.13",
     "@tauri-apps/api": "^1.2.0",
     "fast-average-color": "^9.1.1",
+    "file-saver": "^2.0.5",
     "qr-scanner": "^1.4.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-excel-renderer": "^1.1.0"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tauri-apps/cli": "^1.2.2",
+    "@types/file-saver": "^2.0.5",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
