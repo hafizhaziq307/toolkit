@@ -71,7 +71,7 @@ export const AverageColorExtractor = () => {
             ref={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
-            className="uplaod-file"
+            className="upload-file"
           />
         </div>
 

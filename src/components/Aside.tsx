@@ -3,6 +3,7 @@ import {
   SwatchIcon,
   TagIcon,
   QrCodeIcon,
+  CircleStackIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import logo from "../assets/img/logo.png";
@@ -79,6 +80,22 @@ export const Aside = (props: any) => {
             >
               <QrCodeIcon className="h-6 w-6" />
               <span className="uppercase">qr code</span>
+            </button>
+          </Link>
+
+          <Link to="/">
+            <button
+              className={`flex w-full items-center gap-2 rounded  px-1 py-2 text-sm ${
+                props.activeTag === "sql"
+                  ? "bg-blue-600 font-medium"
+                  : "hover:bg-gray-700"
+              }`}
+              onClick={() => {
+                props.searching("sql");
+              }}
+            >
+              <CircleStackIcon className="h-6 w-6" />
+              <span className="uppercase">sql</span>
             </button>
           </Link>
         </div>

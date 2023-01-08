@@ -64,10 +64,10 @@ export const tools = [
     icon: <CalculatorIcon className="h-6 w-6 text-fuchsia-500" />,
   },
   {
-    title: "Excel to Sql",
+    title: "XLSX to Sql",
     tag: "SQL",
     link: "excel_to_sql",
-    description: "Convert excel to sql",
+    description: "Convert xlsx to sql insert statement",
 
     icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
   },
