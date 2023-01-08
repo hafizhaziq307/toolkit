@@ -133,7 +133,7 @@ export const ExcelToSql = () => {
               onChange={(e) => setConvertTo(e.target.value)}
               className="select"
             >
-              <option value="">convert to</option>
+              <option value="">-- convert to --</option>
               <option value="sql server">SQL Server</option>
             </select>
           </div>
