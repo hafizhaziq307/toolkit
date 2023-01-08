@@ -15,7 +15,7 @@ gear calc | none | :white_check_mark: |
 QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_check_mark: | 
 Average color Detector | [fast-average-color](https://github.com/fast-average-color/fast-average-color) | :white_check_mark: | 
 tailwind color similarity | none | :white_check_mark: | 
-insert generator | [excel.js](https://github.com/exceljs/exceljs) | :white_large_square: | 
+excel to sql | [react-excel-renderer](https://github.com/ashishd751/react-excel-renderer) | :white_check_mark: | 
 
 ---
 
