@@ -8,7 +8,7 @@ bundle of useful tools that I always use
 ## List of Tools
 | Tools | Library |  | 
 | --- | --- | --- |
-text count | List all new or modified files | :white_check_mark: | 
+text count | none | :white_check_mark: | 
 text transform | none | :white_check_mark: | 
 remove newline | none | :white_check_mark: | 
 gear calc | none | :white_check_mark: | 
