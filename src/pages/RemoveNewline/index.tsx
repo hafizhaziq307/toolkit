@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ClearButton } from "../../components/Buttons/ClearButton";
-import { CopyButton } from "../../components/Buttons/CopyButton";
+import { Button, ClearButton, CopyButton } from "../../components/Buttons";
+import { Textarea } from "../../components/Textarea";
 
 export const RemoveNewline = () => {
   const [text, setText] = useState("");
@@ -31,22 +31,13 @@ export const RemoveNewline = () => {
         </header>
 
         <div className="card-body space-y-4">
-          <textarea
-            onChange={(e) => setText(e.target.value)}
+          <Textarea
             value={text}
-            rows={20}
-            className="textarea"
-            placeholder="Write something..."
-          ></textarea>
+            onChange={(e: any) => setText(e.target.value)}
+          />
 
           <div>
-            <button
-              className="btn-primary"
-              title="capitalize"
-              onClick={removeAllNewlines}
-            >
-              Remove All Newlines
-            </button>
+            <Button title="Remove All Newlines" onClick={removeAllNewlines} />
           </div>
         </div>
       </div>

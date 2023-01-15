@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { ClearButton } from "../../components/Buttons";
+import { Textarea } from "../../components/Textarea";
 
 export const TextCount = () => {
   const [wordCount, setWordCount] = useState(0);
@@ -39,13 +40,7 @@ export const TextCount = () => {
         </header>
 
         <div className="card-body">
-          <textarea
-            onChange={handleChange}
-            value={word}
-            rows={20}
-            className="textarea"
-            placeholder="Write something..."
-          ></textarea>
+          <Textarea onChange={handleChange} value={word} />
         </div>
 
         <footer className="card-footer grid grid-cols-3 divide-x-2 divide-gray-600">

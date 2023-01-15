@@ -1,6 +1,7 @@
-import { TrashIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { ClearButton } from "../../components/Buttons";
+import { InputText } from "../../components/Inputs";
 import { tailwind_colors } from "../../data";
 import { Result } from "./Result";
 
@@ -66,13 +67,11 @@ export const ColorSimilarity = () => {
             resultColors.length !== 0 ? "border-b border-gray-600" : ""
           }`}
         >
-          <input
-            type="text"
-            className="input text-xl"
-            placeholder="Example: #FF5566"
+          <InputText
+            placeholder="#FF5566"
             maxLength={7}
             value={text.toUpperCase()}
-            onChange={(event) => setText(event.target.value)}
+            onChange={(e: any) => setText(e.target.value)}
           />
 
           <div className="flex">

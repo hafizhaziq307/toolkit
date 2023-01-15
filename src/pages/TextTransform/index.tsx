@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { CopyButton } from "../../components/Buttons/CopyButton";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { Button, CopyButton, ClearButton } from "../../components/Buttons";
+import { Textarea } from "../../components/Textarea";
 
 export const TextTransform = () => {
   const [text, setText] = useState("");
@@ -45,38 +45,15 @@ export const TextTransform = () => {
         </header>
 
         <div className="card-body space-y-4">
-          <textarea
-            onChange={(e) => setText(e.target.value)}
+          <Textarea
+            onChange={(e: any) => setText(e.target.value)}
             value={text}
-            rows={20}
-            className="textarea"
-            placeholder="Write something..."
-          ></textarea>
+          />
 
           <div className="flex gap-2">
-            <button
-              className="btn-primary"
-              title="capitalize"
-              onClick={capitalize}
-            >
-              Capitalize
-            </button>
-
-            <button
-              className="btn-primary"
-              title="lowercase"
-              onClick={lowercase}
-            >
-              Lowercase
-            </button>
-
-            <button
-              className="btn-primary"
-              title="uppercase"
-              onClick={uppercase}
-            >
-              Uppercase
-            </button>
+            <Button title="Capitalize" onClick={capitalize} />
+            <Button title="Lowercase" onClick={lowercase} />
+            <Button title="Uppercase" onClick={uppercase} />
           </div>
         </div>
       </div>

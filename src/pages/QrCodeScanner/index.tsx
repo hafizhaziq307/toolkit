@@ -1,12 +1,9 @@
 import QrScanner from "qr-scanner";
 import { useEffect, useRef, useState } from "react";
 import { isEmpty } from "../../helpers";
-import {
-  LinkIcon,
-  ExclamationCircleIcon,
-  TrashIcon,
-} from "@heroicons/react/24/outline";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { LinkIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
+import { ClearButton } from "../../components/Buttons";
+import { InputFile } from "../../components/Inputs";
 
 export const QrCodeScanner = () => {
   const [generatedLink, setGeneratedLink] = useState("");
@@ -58,12 +55,10 @@ export const QrCodeScanner = () => {
             />
           )}
 
-          <input
-            type="file"
+          <InputFile
             ref={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
-            className="upload-file"
           />
         </div>
 

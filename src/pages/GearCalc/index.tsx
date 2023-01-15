@@ -3,12 +3,9 @@ import { HandThumbUpIcon } from "@heroicons/react/24/solid";
 
 import { isEmpty } from "../../helpers";
 import { gear_calc_data } from "../../data";
-import { InputSubstatValue } from "./InputSubstatValue";
-import { ClearButton } from "../../components/Buttons/ClearButton";
-import { SelectSubstatType } from "./SelectSubstatType";
-import { SelectEnhanceLevel } from "./SelectEnhanceLevel";
-import { SelectGearRarity } from "./SelectGearRarity";
-import { SelectGearLevel } from "./SelectGearLevel";
+import { Button, ClearButton } from "../../components/Buttons";
+import { InputText } from "../../components/Inputs";
+import { Select } from "../../components/Select";
 
 export const GearCalc = () => {
   const [currentSubstats, setCurrentSubstats] = useState<any>([
@@ -139,17 +136,35 @@ export const GearCalc = () => {
 
           <div className="card-body space-y-4">
             <section className="flex gap-4">
-              <SelectGearRarity
-                setCurrentGearRarity={setCurrentGearRarity}
-                currentGearRarity={currentGearRarity}
+              {/* gear rarity */}
+              <Select
+                value={currentGearRarity}
+                onChange={(e: any) => setCurrentGearRarity(e.target.value)}
+                placeholder="Gear Rarity"
+                options={gear_calc_data.rarities.map((item) => {
+                  return { id: item.id, title: item.label, value: item.value };
+                })}
               />
-              <SelectGearLevel
-                setCurrentGearLevel={setCurrentGearLevel}
-                currentGearLevel={currentGearLevel}
+
+              {/* gear level */}
+              <Select
+                value={currentGearLevel}
+                onChange={(e: any) => setCurrentGearLevel(e.target.value)}
+                placeholder="gear level"
+                options={gear_calc_data.gearLevels.map((item) => {
+                  return { id: item.id, title: item.label, value: item.value };
+                })}
               />
-              <SelectEnhanceLevel
-                setCurrentEnchanceLevel={setCurrentEnchanceLevel}
-                currentEnchanceLevel={currentEnchanceLevel}
+
+              {/* enhance level */}
+              <Select
+                value={currentEnchanceLevel}
+                onChange={(e: any) => setCurrentEnchanceLevel(e.target.value)}
+                className="col-span-4"
+                placeholder="enhance level"
+                options={gear_calc_data.enhanceLevels.map((item) => {
+                  return { id: item.id, title: item.label, value: item.value };
+                })}
               />
             </section>
 
@@ -161,15 +176,40 @@ export const GearCalc = () => {
                     className="grid grid-cols-5 gap-4"
                     key={currentSubstat.id}
                   >
-                    <SelectSubstatType
-                      currentSubstat={currentSubstat}
-                      currentSubstats={currentSubstats}
-                      setCurrentSubstats={setCurrentSubstats}
+                    <Select
+                      value={currentSubstat.substatId}
+                      onChange={(e: any) =>
+                        setCurrentSubstats(
+                          currentSubstats.map((item: any) =>
+                            item.id == currentSubstat.id
+                              ? { ...item, substatId: e.target.value }
+                              : item
+                          )
+                        )
+                      }
+                      placeholder="type"
+                      options={gear_calc_data.substats.map((item) => {
+                        return {
+                          id: item.id,
+                          title: item.label,
+                          value: item.id,
+                        };
+                      })}
+                      className="col-span-4"
                     />
-                    <InputSubstatValue
-                      currentSubstat={currentSubstat}
-                      currentSubstats={currentSubstats}
-                      setCurrentSubstats={setCurrentSubstats}
+
+                    <InputText
+                      placeholder="0"
+                      value={currentSubstat.value}
+                      onChange={(e: any) =>
+                        setCurrentSubstats(
+                          currentSubstats.map((item: any) =>
+                            item.id == currentSubstat.id
+                              ? { ...item, value: e.target.value }
+                              : item
+                          )
+                        )
+                      }
                     />
                   </article>
                 ))}
@@ -177,12 +217,10 @@ export const GearCalc = () => {
             </section>
 
             <section>
-              <button
-                className="btn-primary"
+              <Button
                 onClick={() => generateResult(currentSubstats)}
-              >
-                Calculate
-              </button>
+                title="Calculate"
+              />
             </section>
           </div>
         </div>

@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from "react";
 import { ExcelRenderer } from "react-excel-renderer";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { Button, ClearButton } from "../../components/Buttons";
+import { InputFile, InputText } from "../../components/Inputs";
+import { Select } from "../../components/Select";
 import { isEmpty, saveFile, fillEmptySlots } from "../../helpers";
 
 export const ExcelToSql = () => {
@@ -111,36 +113,28 @@ export const ExcelToSql = () => {
         </header>
 
         <div className="card-body space-y-4">
-          <input
+          <InputFile
             ref={uploadFileRef}
-            type="file"
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-            className="upload-file"
             onChange={(e: any) => setUploadFile(e.target.files[0])}
           />
 
           <div className="grid grid-cols-2 gap-4">
-            <input
-              type="text"
-              className="input"
+            <InputText
               value={tablename}
               placeholder="table name"
-              onChange={(e) => setTablename(e.target.value)}
+              onChange={(e: any) => setTablename(e.target.value)}
             />
 
-            <select
+            <Select
               value={convertTo}
-              onChange={(e) => setConvertTo(e.target.value)}
-              className="select"
-            >
-              <option value="">-- convert to --</option>
-              <option value="sql server">SQL Server</option>
-            </select>
+              onChange={(e: any) => setConvertTo(e.target.value)}
+              placeholder="convert to"
+              options={[{ id: 1, title: "SQL Server", value: "sql server" }]}
+            />
           </div>
 
-          <button className="btn-primary" onClick={renderFile}>
-            Convert
-          </button>
+          <Button onClick={renderFile} title="Convert" />
         </div>
       </div>
     </>

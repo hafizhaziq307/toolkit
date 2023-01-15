@@ -1,8 +1,8 @@
 import { FastAverageColor } from "fast-average-color";
 import { useRef, useState, useEffect } from "react";
 import { isEmpty } from "../../helpers";
-import { CopyButton } from "../../components/Buttons/CopyButton";
-import { ClearButton } from "../../components/Buttons/ClearButton";
+import { CopyButton, ClearButton } from "../../components/Buttons";
+import { InputFile } from "../../components/Inputs";
 
 export const AverageColorExtractor = () => {
   const [averageColor, setAverageColor] = useState("");
@@ -56,7 +56,7 @@ export const AverageColorExtractor = () => {
           <ClearButton onClick={clear} />
         </header>
 
-        <div className={`card-body${uploadedImage !== "" ? "space-y-4" : ""}`}>
+        <div className={`card-body ${uploadedImage !== "" ? "space-y-4" : ""}`}>
           <img
             ref={imageRef}
             src={uploadedImage}
@@ -66,12 +66,10 @@ export const AverageColorExtractor = () => {
             }`}
           />
 
-          <input
-            type="file"
+          <InputFile
             ref={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
-            className="upload-file"
           />
         </div>
 
