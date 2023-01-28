@@ -21,7 +21,7 @@ excel to sql | [react-excel-renderer](https://github.com/ashishd751/react-excel-
 
 ## Stack
 It is created using those amazing technologies:
-- [React](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind](https://tailwindcss.com/)
 - [Tauri](https://tauri.studio/)
