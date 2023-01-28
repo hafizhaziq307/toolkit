@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, CopyButton, ClearButton } from "../../components/Buttons";
-import { Textarea } from "../../components/Textarea";
+import { Button, CopyButton, ClearButton } from "../../../components/Buttons";
+import { PageTitle } from "../../../components/PageTitle";
+import { Textarea } from "../../../components/Textarea";
 
-export const TextTransform = () => {
+export default function TextTransform() {
   const [text, setText] = useState("");
 
   const capitalize = () => {
@@ -36,7 +37,7 @@ export const TextTransform = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Text Transform</header>
+      <PageTitle title="Text Transforms" />
 
       <div className="card mb-4">
         <header className="card-header flex justify-end">
@@ -59,4 +60,4 @@ export const TextTransform = () => {
       </div>
     </>
   );
-};
+}

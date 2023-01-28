@@ -1,10 +1,11 @@
 import { FastAverageColor } from "fast-average-color";
 import { useRef, useState, useEffect } from "react";
-import { isEmpty } from "../../helpers";
-import { CopyButton, ClearButton } from "../../components/Buttons";
-import { InputFile } from "../../components/Inputs";
+import { ClearButton, CopyButton } from "../../../components/Buttons";
+import { InputFile } from "../../../components/Inputs";
+import { PageTitle } from "../../../components/PageTitle";
+import { isEmpty } from "../../../helpers";
 
-export const AverageColorExtractor = () => {
+export default function AverageColorExtractor() {
   const [averageColor, setAverageColor] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
 
@@ -49,7 +50,7 @@ export const AverageColorExtractor = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Average Color Extractor</header>
+      <PageTitle title="Average Color Extractor" />
 
       <div className="card">
         <header className="card-header flex justify-end">
@@ -67,7 +68,7 @@ export const AverageColorExtractor = () => {
           />
 
           <InputFile
-            ref={uploadFileRef}
+            fileRef={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
           />
@@ -89,4 +90,4 @@ export const AverageColorExtractor = () => {
       </div>
     </>
   );
-};
+}

@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { ClearButton } from "../../components/Buttons";
-import { Textarea } from "../../components/Textarea";
+import { ClearButton } from "../../../components/Buttons";
+import { PageTitle } from "../../../components/PageTitle";
+import { Textarea } from "../../../components/Textarea";
 
-export const TextCount = () => {
+export default function TextCount() {
+  const [word, setWord] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [charcount, setCharCount] = useState(0);
   const [charNoSpacecount, setCharNoSpaceCount] = useState(0);
-  const [word, setWord] = useState("");
 
   const handleChange = (e: any) => {
     setWord(e.target.value);
@@ -32,7 +33,7 @@ export const TextCount = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Text Count</header>
+      <PageTitle title="Text Count" />
 
       <div className="card">
         <header className="card-header flex justify-end">
@@ -66,4 +67,4 @@ export const TextCount = () => {
       </div>
     </>
   );
-};
+}

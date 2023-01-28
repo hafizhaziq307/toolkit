@@ -1,11 +1,12 @@
 import { useRef, useState, useEffect } from "react";
 import { ExcelRenderer } from "react-excel-renderer";
-import { Button, ClearButton } from "../../components/Buttons";
-import { InputFile, InputText } from "../../components/Inputs";
-import { Select } from "../../components/Select";
-import { isEmpty, saveFile, fillEmptySlots } from "../../helpers";
+import { ClearButton, Button } from "../../../components/Buttons";
+import { InputFile, InputText } from "../../../components/Inputs";
+import { PageTitle } from "../../../components/PageTitle";
+import { Select } from "../../../components/Select";
+import { isEmpty, saveFile, fillEmptySlots } from "../../../helpers";
 
-export const ExcelToSql = () => {
+export default function ExcelToSql() {
   const [tablename, setTablename] = useState("");
   const [uploadFile, setUploadFile] = useState("");
   const [convertTo, setConvertTo] = useState("");
@@ -105,7 +106,7 @@ export const ExcelToSql = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Excel to SQL</header>
+      <PageTitle title="Excel to SQL" />
 
       <div className=" card">
         <header className="card-header flex justify-end">
@@ -114,7 +115,7 @@ export const ExcelToSql = () => {
 
         <div className="card-body space-y-4">
           <InputFile
-            ref={uploadFileRef}
+            fileRef={uploadFileRef}
             accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
             onChange={(e: any) => setUploadFile(e.target.files[0])}
           />
@@ -139,4 +140,4 @@ export const ExcelToSql = () => {
       </div>
     </>
   );
-};
+}

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { HandThumbUpIcon } from "@heroicons/react/24/solid";
+import { ClearButton, Button } from "../../../components/Buttons";
+import { InputText } from "../../../components/Inputs";
+import { Select } from "../../../components/Select";
+import { gear_calc_data } from "../../../data";
+import { isEmpty } from "../../../helpers";
+import { PageTitle } from "../../../components/PageTitle";
 
-import { isEmpty } from "../../helpers";
-import { gear_calc_data } from "../../data";
-import { Button, ClearButton } from "../../components/Buttons";
-import { InputText } from "../../components/Inputs";
-import { Select } from "../../components/Select";
-
-export const GearCalc = () => {
+export default function GearCalc() {
   const [currentSubstats, setCurrentSubstats] = useState<any>([
     {
       id: 1,
@@ -126,7 +126,7 @@ export const GearCalc = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Gear Calc</header>
+      <PageTitle title="Gear Calc" />
 
       <div className="space-y-6 text-sm lg:text-base">
         <div className="card">
@@ -231,38 +231,44 @@ export const GearCalc = () => {
 
             <div className="card-body space-y-6">
               <table className="w-full table-auto border-collapse">
-                <tr className="odd:bg-gray-700 even:bg-gray-800">
-                  <th className="border border-gray-500 p-3">Title</th>
-                  <th className="border border-gray-500 p-3">Value</th>
-                  <th className="border border-gray-500 p-3">Missed</th>
-                  <th className="border border-gray-500 p-3">Rolled</th>
-                </tr>
-                {result.map((item: any) => (
-                  <tr
-                    className="odd:bg-gray-700 even:bg-gray-800"
-                    key={item.id}
-                  >
-                    <td className="border border-gray-500 p-3 capitalize">
-                      {item.title}
-                    </td>
-                    <td className="border border-gray-500 p-3">{item.value}</td>
-                    <td className="border border-gray-500 p-3 font-medium text-red-600">
-                      {item.miss}
-                    </td>
-                    <td
-                      className={`border border-gray-500 p-3 ${
-                        item.countRolls >= 4
-                          ? "flex items-center justify-between"
-                          : ""
-                      }`}
-                    >
-                      {item.countRolls} times
-                      {item.countRolls >= 4 && (
-                        <HandThumbUpIcon className="h-5 w-5 text-green-500" />
-                      )}
-                    </td>
+                <thead>
+                  <tr className="odd:bg-gray-700 even:bg-gray-800">
+                    <th className="border border-gray-500 p-3">Title</th>
+                    <th className="border border-gray-500 p-3">Value</th>
+                    <th className="border border-gray-500 p-3">Missed</th>
+                    <th className="border border-gray-500 p-3">Rolled</th>
                   </tr>
-                ))}
+                </thead>
+                <tbody>
+                  {result.map((item: any) => (
+                    <tr
+                      className="odd:bg-gray-700 even:bg-gray-800"
+                      key={item.id}
+                    >
+                      <td className="border border-gray-500 p-3 capitalize">
+                        {item.title}
+                      </td>
+                      <td className="border border-gray-500 p-3">
+                        {item.value}
+                      </td>
+                      <td className="border border-gray-500 p-3 font-medium text-red-600">
+                        {item.miss}
+                      </td>
+                      <td
+                        className={`border border-gray-500 p-3 ${
+                          item.countRolls >= 4
+                            ? "flex items-center justify-between"
+                            : ""
+                        }`}
+                      >
+                        {item.countRolls} times
+                        {item.countRolls >= 4 && (
+                          <HandThumbUpIcon className="h-5 w-5 text-green-500" />
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
 
               <section className="text-xl">
@@ -274,4 +280,4 @@ export const GearCalc = () => {
       </div>
     </>
   );
-};
+}

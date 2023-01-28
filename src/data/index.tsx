@@ -5,71 +5,115 @@ import {
   SwatchIcon,
   CalculatorIcon,
   DocumentTextIcon,
+  Bars3CenterLeftIcon,
+  CircleStackIcon,
+  TagIcon,
 } from "@heroicons/react/24/outline";
 
 export const tools = [
   {
+    id: 0,
     title: "text count",
-    tag: "text",
-    link: "text_tool_word_count",
+    tagId: 1,
+    link: "/tools/text-count",
     description: "Count words and characters with or without space in text",
     icon: <Bars3BottomLeftIcon className="h-6 w-6 text-amber-500" />,
   },
   {
+    id: 1,
     title: "remove newline",
-    tag: "text",
-    link: "remove_newline",
+    tagId: 1,
+    link: "/tools/remove-newline",
     description: "Remove all newlines in text",
 
     icon: <Bars3BottomLeftIcon className="h-6 w-6 text-rose-500" />,
   },
   {
+    id: 2,
     title: "text transforms",
-    tag: "text",
-    link: "text_transform",
+    tagId: 1,
+    link: "/tools/text-transform",
     description: "Uppercase, lowercase and capitalize the text",
 
     icon: <Bars3BottomLeftIcon className="h-6 w-6 text-teal-500" />,
   },
   {
+    id: 3,
     title: "QR Code Scanner",
-    tag: "QR Code",
-    link: "qrcode_scanner",
+    tagId: 3,
+    link: "/tools/qrcode-scanner",
     description: "Scan QR code using image",
 
     icon: <QrCodeIcon className="h-6 w-6 text-sky-500" />,
   },
   {
+    id: 4,
     title: "Tailwind Color Similarity",
-    tag: "Color",
-    link: "color_similarity",
+    tagId: 2,
+    link: "/tools/color-similarity",
     description: "Get similar color in Tailwind CSS using hexcode",
 
     icon: <SwatchIcon className="h-6 w-6 text-emerald-500" />,
   },
   {
+    id: 5,
     title: "Average Color Extractor",
-    tag: "Color",
-    link: "average_color_extractor",
+    tagId: 2,
+    link: "/tools/average-color-extractor",
     description: "Get average color using image",
 
     icon: <PaintBrushIcon className="h-6 w-6 text-indigo-500" />,
   },
   {
+    id: 6,
     title: "Gear Calc",
-    tag: "Epic Seven",
-    link: "gear_calc",
+    tagId: 5,
+    link: "/tools/gear-calc",
     description: "Calculate Epic Seven gear score",
 
     icon: <CalculatorIcon className="h-6 w-6 text-fuchsia-500" />,
   },
   {
-    title: "XLSX to Sql",
-    tag: "SQL",
-    link: "excel_to_sql",
-    description: "Convert xlsx to sql insert statement",
+    id: 7,
+    title: "Excel to SQL",
+    tagId: 4,
+    link: "/tools/excel-to-sql",
+    description: "Convert excel to sql insert statement",
 
     icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
+  },
+];
+
+export const tags = [
+  {
+    id: 0,
+    title: "all",
+    icon: <TagIcon className="h-5 w-5" />,
+  },
+  {
+    id: 1,
+    title: "text",
+    icon: <Bars3CenterLeftIcon className="h-5 w-5" />,
+  },
+  {
+    id: 2,
+    title: "color",
+    icon: <SwatchIcon className="h-5 w-5" />,
+  },
+  {
+    id: 3,
+    title: "qr code",
+    icon: <QrCodeIcon className="h-5 w-5" />,
+  },
+  {
+    id: 4,
+    title: "sql",
+    icon: <CircleStackIcon className="h-5 w-5" />,
+  },
+  {
+    id: 5,
+    title: "math",
+    icon: <CalculatorIcon className="h-5 w-5" />,
   },
 ];
 

@@ -1,11 +1,13 @@
 import QrScanner from "qr-scanner";
 import { useEffect, useRef, useState } from "react";
-import { isEmpty } from "../../helpers";
 import { LinkIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ClearButton } from "../../components/Buttons";
-import { InputFile } from "../../components/Inputs";
+import { ClearButton } from "../../../components/Buttons";
+import { isEmpty } from "../../../helpers";
+import { PageTitle } from "../../../components/PageTitle";
+import { InputFile } from "../../../components/Inputs";
+import Image from "next/image";
 
-export const QrCodeScanner = () => {
+export default function QrCodeScanner() {
   const [generatedLink, setGeneratedLink] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
 
@@ -39,7 +41,7 @@ export const QrCodeScanner = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">QR Code Scanner</header>
+      <PageTitle title="QR Code Scanner" />
 
       <div className="card">
         <header className="card-header flex justify-end">
@@ -48,15 +50,17 @@ export const QrCodeScanner = () => {
 
         <div className="card-body space-y-4">
           {!isEmpty(generatedLink) && (
-            <img
+            <Image
+              className="aspect-video w-[40rem] bg-gray-700 object-scale-down object-left"
               src={uploadedImage}
               alt="img"
-              className="aspect-video w-[40rem] bg-gray-700 object-scale-down object-left"
+              width={0}
+              height={0}
             />
           )}
 
           <InputFile
-            ref={uploadFileRef}
+            fileRef={uploadFileRef}
             onChange={handleChange}
             accept="image/*"
           />
@@ -88,4 +92,4 @@ export const QrCodeScanner = () => {
       </div>
     </>
   );
-};
+}

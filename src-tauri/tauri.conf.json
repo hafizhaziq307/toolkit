@@ -3,15 +3,25 @@
     "beforeDevCommand": "npm run dev",
     "beforeBuildCommand": "npm run build",
     "devPath": "http://localhost:1420",
-    "distDir": "../dist"
+    "distDir": "../dist",
+    "withGlobalTauri": false
   },
   "package": {
     "productName": "toolkit",
-    "version": "0.3.0"
+    "version": "0.4.0"
   },
   "tauri": {
     "allowlist": {
-      "all": true
+        "window": {
+            "all": true
+        },
+        "dialog": {
+            "all": true
+        },
+      "shell": {
+        "all": false,
+        "open": true
+      }
     },
     "bundle": {
       "active": true,
@@ -54,10 +64,11 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+       "fullscreen": false,
         "height": 650,
         "minHeight": 650,
         "resizable": true,
+        "decorations": false,
         "title": "toolkit",
         "width": 800, 
         "minWidth": 800,

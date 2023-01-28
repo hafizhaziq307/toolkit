@@ -1,11 +1,11 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { ClearButton } from "../../components/Buttons";
-import { InputText } from "../../components/Inputs";
-import { tailwind_colors } from "../../data";
-import { Result } from "./Result";
+import { ClearButton } from "../../../components/Buttons";
+import { InputText } from "../../../components/Inputs";
+import { PageTitle } from "../../../components/PageTitle";
+import { tailwind_colors } from "../../../data";
 
-export const ColorSimilarity = () => {
+export default function ColorSimilarity() {
   const [text, setText] = useState("");
   const [resultColors, setResultColors] = useState<any>([]);
 
@@ -59,7 +59,7 @@ export const ColorSimilarity = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Tailwind Color Similarity</header>
+      <PageTitle title="Tailwind Color Similarity" />
 
       <div className="card mb-4">
         <header
@@ -92,7 +92,27 @@ export const ColorSimilarity = () => {
 
             <div className="space-y-6">
               {resultColors.map((color: any, index: any) => (
-                <Result key={color.title} index={index} color={color} />
+                <article
+                  key={index}
+                  className="flex rounded border border-gray-600"
+                >
+                  <div className="grid w-20 place-content-center border-r border-gray-600 text-xl font-medium">
+                    {index + 1}
+                  </div>
+                  <div className="w-full space-y-1 p-3">
+                    <header className="flex justify-between">
+                      <div className="font-medium">{color.title}</div>
+                      <div className="font-medium">{color.percentage}%</div>
+                    </header>
+
+                    <div className="h-3 w-full overflow-hidden rounded-full bg-gray-700">
+                      <div
+                        className="h-full bg-blue-600"
+                        style={{ width: color.percentage + "80%" }}
+                      />
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
@@ -100,4 +120,4 @@ export const ColorSimilarity = () => {
       </div>
     </>
   );
-};
+}

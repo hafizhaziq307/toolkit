@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Button, ClearButton, CopyButton } from "../../components/Buttons";
-import { Textarea } from "../../components/Textarea";
+import { CopyButton, ClearButton, Button } from "../../../components/Buttons";
+import { PageTitle } from "../../../components/PageTitle";
+import { Textarea } from "../../../components/Textarea";
 
-export const RemoveNewline = () => {
+export default function RemoveNewline() {
   const [text, setText] = useState("");
 
   const removeAllNewlines = () => {
@@ -22,7 +23,7 @@ export const RemoveNewline = () => {
 
   return (
     <>
-      <header className="text-lg font-medium">Remove Newline</header>
+      <PageTitle title="Remove Newline" />
 
       <div className="card">
         <header className="card-header flex justify-end">
@@ -43,4 +44,4 @@ export const RemoveNewline = () => {
       </div>
     </>
   );
-};
+}

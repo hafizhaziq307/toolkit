@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-    .scrollbar-component {
-      @apply scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-rounded-full scrollbar-thumb-rounded-full;
-    }
-
     .card{
         @apply w-full rounded-lg border border-gray-600 bg-gray-800;
     }
