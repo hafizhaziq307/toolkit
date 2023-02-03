@@ -57,10 +57,10 @@ export const tools = [
   },
   {
     id: 5,
-    title: "Average Color Extractor",
+    title: "color Extractor",
     tagId: 2,
-    link: "/tools/average-color-extractor",
-    description: "Get average color using image",
+    link: "/tools/color-extractor",
+    description: "Get color using image",
 
     icon: <PaintBrushIcon className="h-6 w-6 text-indigo-500" />,
   },
@@ -79,6 +79,15 @@ export const tools = [
     tagId: 4,
     link: "/tools/excel-to-sql",
     description: "Convert excel to sql insert statement",
+
+    icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
+  },
+  {
+    id: 8,
+    title: "test",
+    tagId: 4,
+    link: "/tools/string-converter",
+    description: "",
 
     icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
   },

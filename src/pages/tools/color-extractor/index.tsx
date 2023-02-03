@@ -1,12 +1,11 @@
-import { FastAverageColor } from "fast-average-color";
 import { useRef, useState, useEffect } from "react";
 import { ClearButton, CopyButton } from "../../../components/Buttons";
 import { InputFile } from "../../../components/Inputs";
 import { PageTitle } from "../../../components/PageTitle";
 import { isEmpty } from "../../../helpers";
 
-export default function AverageColorExtractor() {
-  const [averageColor, setAverageColor] = useState("");
+export default function colorExtractor() {
+  const [color, setColor] = useState("");
   const [uploadedImage, setUploadedImage] = useState("");
 
   const imageRef: any = useRef();
@@ -15,29 +14,56 @@ export default function AverageColorExtractor() {
   // after uploadedImage changes
   useEffect(() => {
     if (!isEmpty(uploadedImage)) {
-      getAverageColor(imageRef.current);
+      (async () => {
+        const color = await extractColor(imageRef.current);
+        setColor(color);
+      })();
     }
   }, [uploadedImage]);
 
-  const getAverageColor = (imgElement: any) => {
-    const fac = new FastAverageColor();
+  const extractColor = async (imageElement: any) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-    fac
-      .getColorAsync(imgElement, { algorithm: "simple", mode: "precision" })
-      .then((color) => setAverageColor(color.hex))
-      .catch((e) => alert(e));
+    await new Promise(
+      (resolve) => (imageElement.onload = () => resolve(imageElement))
+    );
+
+    canvas.width = imageElement.width;
+    canvas.height = imageElement.height;
+    ctx.drawImage(imageElement, 0, 0, canvas.width, canvas.height);
+
+    // Get the image data from the canvas
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+
+    let r = 0;
+    let g = 0;
+    let b = 0;
+    let count = 0;
+
+    for (let i = 0; i < data.length; i += 4) {
+      r += data[i];
+      g += data[i + 1];
+      b += data[i + 2];
+      count++;
+    }
+    r = Math.floor(r / count);
+    g = Math.floor(g / count);
+    b = Math.floor(b / count);
+
+    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   };
 
-  const handleChange = (event: any) => {
-    const file = event.target.files[0];
+  const handleChange = (e: any) => {
+    const file = e.target.files[0];
     if (!file) return;
-
     setUploadedImage(URL.createObjectURL(file));
   };
 
   const copy = () => {
     navigator.clipboard
-      .writeText(averageColor)
+      .writeText(color)
       .then(() => alert(`Copied!`))
       .catch((error) => alert(`Copy failed! ${error}`));
   };
@@ -45,12 +71,12 @@ export default function AverageColorExtractor() {
   const clear = () => {
     uploadFileRef.current.value = "";
     setUploadedImage("");
-    setAverageColor("");
+    setColor("");
   };
 
   return (
     <>
-      <PageTitle title="Average Color Extractor" />
+      <PageTitle title="Color Extractor" />
 
       <div className="card">
         <header className="card-header flex justify-end">
@@ -74,14 +100,14 @@ export default function AverageColorExtractor() {
           />
         </div>
 
-        {!isEmpty(averageColor) && (
+        {!isEmpty(color) && (
           <footer className="card-footer flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
               <div
                 className="h-10 w-10 border"
-                style={{ backgroundColor: averageColor }}
+                style={{ backgroundColor: color }}
               />
-              <span className="text-xl">{averageColor}</span>
+              <span className="text-xl">{color.toUpperCase()}</span>
             </div>
 
             <CopyButton onClick={copy} />
