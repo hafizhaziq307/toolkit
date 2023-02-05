@@ -13,7 +13,7 @@ text transform | none | :white_check_mark: |
 remove newline | none | :white_check_mark: | 
 gear calc | none | :white_check_mark: | 
 QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_check_mark: | 
-Average color Detector | none | :white_check_mark: | 
+Color Detector | none | :white_check_mark: | 
 tailwind color similarity | none | :white_check_mark: | 
 excel to sql | [react-excel-renderer](https://github.com/ashishd751/react-excel-renderer) | :white_check_mark: | 
 
