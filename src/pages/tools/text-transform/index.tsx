@@ -29,10 +29,10 @@ export default function TextTransform() {
   };
 
   const copy = () => {
-    navigator.clipboard
-      .writeText(text)
-      .then(() => alert(`Copied!`))
-      .catch((error) => alert(`Copy failed! ${error}`));
+    navigator.clipboard.writeText(text).then(
+      () => alert(`Copied!`),
+      (err) => alert(`Copy failed! ${err}`)
+    );
   };
 
   return (

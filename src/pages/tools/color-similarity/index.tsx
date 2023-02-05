@@ -25,31 +25,28 @@ export default function ColorSimilarity() {
     setResultColors(result.slice(0, 3));
   };
 
-  const hexToRgb = (rawHex: string) => {
-    const validHex = rawHex.toUpperCase().slice(1);
-    const rgbHex: any = validHex.match(/.{1,2}/g);
+  const hexToRgb = (hex: string) => {
+    hex = hex.slice(1);
+    let r = parseInt(hex.substring(0, 2), 16);
+    let g = parseInt(hex.substring(2, 4), 16);
+    let b = parseInt(hex.substring(4, 6), 16);
 
-    return rgbHex.map((item: any) => parseInt(item, 16));
+    return {
+      r: r,
+      g: g,
+      b: b,
+    };
   };
 
   const compareColors = (hex1: string, hex2: string) => {
     const rgb1 = hexToRgb(hex1);
     const rgb2 = hexToRgb(hex2);
 
-    const red =
-      rgb1[0] >= rgb2[0]
-        ? (rgb2[0] / rgb1[0]) * 100
-        : (rgb1[0] / rgb2[0]) * 100;
-    const green =
-      rgb1[1] >= rgb2[1]
-        ? (rgb2[1] / rgb1[1]) * 100
-        : (rgb1[1] / rgb2[1]) * 100;
-    const black =
-      rgb1[2] >= rgb2[2]
-        ? (rgb2[2] / rgb1[2]) * 100
-        : (rgb1[2] / rgb2[2]) * 100;
+    const red = (rgb1.r >= rgb2.r ? rgb2.r / rgb1.r : rgb1.r / rgb2.r) * 100;
+    const green = (rgb1.g >= rgb2.g ? rgb2.g / rgb1.g : rgb1.g / rgb2.g) * 100;
+    const blue = (rgb1.b >= rgb2.b ? rgb2.b / rgb1.b : rgb1.b / rgb2.b) * 100;
 
-    return (red + green + black) / 3;
+    return (red + green + blue) / 3;
   };
 
   const clear = () => {

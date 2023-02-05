@@ -73,10 +73,10 @@ export default function colorExtractor() {
   };
 
   const copy = () => {
-    navigator.clipboard
-      .writeText(color)
-      .then(() => alert(`Copied!`))
-      .catch((error) => alert(`Copy failed! ${error}`));
+    navigator.clipboard.writeText(color).then(
+      () => alert(`Copied!`),
+      (err) => alert(`Copy failed! ${err}`)
+    );
   };
 
   const clear = () => {

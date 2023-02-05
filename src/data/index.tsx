@@ -39,7 +39,7 @@ export const tools = [
   },
   {
     id: 3,
-    title: "QR Code Scanner",
+    title: "QR code scanner",
     tagId: 3,
     link: "/tools/qrcode-scanner",
     description: "Scan QR code using image",
@@ -48,7 +48,7 @@ export const tools = [
   },
   {
     id: 4,
-    title: "Tailwind Color Similarity",
+    title: "tailwind color similarity",
     tagId: 2,
     link: "/tools/color-similarity",
     description: "Get similar color in Tailwind CSS using hexcode",
@@ -57,7 +57,7 @@ export const tools = [
   },
   {
     id: 5,
-    title: "color Extractor",
+    title: "color extractor",
     tagId: 2,
     link: "/tools/color-extractor",
     description: "Get color using image",
@@ -66,7 +66,7 @@ export const tools = [
   },
   {
     id: 6,
-    title: "Gear Calc",
+    title: "gear calc",
     tagId: 5,
     link: "/tools/gear-calc",
     description: "Calculate Epic Seven gear score",
@@ -75,7 +75,7 @@ export const tools = [
   },
   {
     id: 7,
-    title: "Excel to SQL",
+    title: "excel to SQL",
     tagId: 4,
     link: "/tools/excel-to-sql",
     description: "Convert excel to sql insert statement",
@@ -84,12 +84,12 @@ export const tools = [
   },
   {
     id: 8,
-    title: "test",
+    title: "string SQL converter",
     tagId: 4,
-    link: "/tools/string-converter",
-    description: "",
+    link: "/tools/string-sql-converter",
+    description: "Convert string into other format (jsp, php)",
 
-    icon: <DocumentTextIcon className="h-6 w-6 text-lime-500" />,
+    icon: <Bars3BottomLeftIcon className="h-6 w-6 text-blue-500" />,
   },
 ];
 
