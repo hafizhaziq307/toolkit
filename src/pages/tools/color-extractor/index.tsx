@@ -15,8 +15,8 @@ export default function colorExtractor() {
   useEffect(() => {
     if (!isEmpty(uploadedImage)) {
       (async () => {
-        const color = await extractColor(imageRef.current);
-        setColor(color);
+        const result = await extractColor(imageRef.current);
+        setColor(result.color.hexcode);
       })();
     }
   }, [uploadedImage]);
@@ -52,7 +52,18 @@ export default function colorExtractor() {
     g = Math.floor(g / count);
     b = Math.floor(b / count);
 
-    return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    let isDark = brightness <= 125;
+
+    return {
+      color: {
+        rgb: `rgb(${r}, ${g}, ${b})`,
+        hexcode: `#${((1 << 24) + (r << 16) + (g << 8) + b)
+          .toString(16)
+          .slice(1)}`.toUpperCase(),
+      },
+      isDark: isDark,
+    };
   };
 
   const handleChange = (e: any) => {
@@ -107,7 +118,7 @@ export default function colorExtractor() {
                 className="h-10 w-10 border"
                 style={{ backgroundColor: color }}
               />
-              <span className="text-xl">{color.toUpperCase()}</span>
+              <span className="text-xl">{color}</span>
             </div>
 
             <CopyButton onClick={copy} />
