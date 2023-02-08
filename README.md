@@ -16,6 +16,8 @@ QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_che
 Color Detector | none | :white_check_mark: | 
 tailwind color similarity | none | :white_check_mark: | 
 excel to sql | [react-excel-renderer](https://github.com/ashishd751/react-excel-renderer) | :white_check_mark: | 
+string converter | none | :white_check_mark: | 
+sql formatter | [sql-formatter](https://github.com/sql-formatter-org/sql-formatter) | :white_large_square: | 
 
 ---
 
