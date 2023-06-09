@@ -1,5 +1,5 @@
 # toolkit
-bundle of useful tools that I always use
+Bundle of useful tools that I always use
  
 <img src="./res/output.png" alt="toolkit" width="60%" height="60%" >
 
@@ -10,6 +10,7 @@ bundle of useful tools that I always use
 | --- | --- | --- |
 text count | none | :white_check_mark: | 
 text transform | none | :white_check_mark: | 
+text added | none | :white_check_mark: | 
 remove newline | none | :white_check_mark: | 
 gear calc | none | :white_check_mark: | 
 QR Code Scanner | [qr-scanner](https://github.com/nimiq/qr-scanner) | :white_check_mark: | 
