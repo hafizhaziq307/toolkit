@@ -7,7 +7,8 @@ import {
     TbFileText,
     TbAlignJustified,
     TbDatabase,
-    TbTags
+    TbTags,
+    TbTextPlus
 } from "react-icons/tb";
 
 
@@ -84,7 +85,15 @@ export const tools = [
         description: "Format SQL statement.",
         icon: <TbDatabase strokeWidth={1.5} className="h-7 w-7 text-blue-500" />,
     },
-];
+    {
+        id: 9,
+        title: "Text Added",
+        tagId: 1,
+        link: "/text-added",
+        description: "Add text on start and end of text.",
+        icon: <TbTextPlus strokeWidth={1.5} className="h-7 w-7 text-cyan-500" />,
+    },
+].sort((a, b) => a.title.localeCompare(b.title));
 
 export const tags = [
     {

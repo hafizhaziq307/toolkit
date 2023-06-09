@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import {
     Home, ColorExtractor, ColorSimilarity, ExcelToSql, GearCalc,
-    QrcodeScanner, RemoveNewline, SqlFormatter, TextCount, TextTransform
+    QrcodeScanner, RemoveNewline, SqlFormatter, TextCount, TextTransform, TextAdded
 } from "./pages";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
                     <Route path="/sql-formatter" element={<SqlFormatter />} />
                     <Route path="/text-count" element={<TextCount />} />
                     <Route path="/text-transform" element={<TextTransform />} />
+                    <Route path="/text-added" element={<TextAdded />} />
                 </Route>
             </Routes>
         </BrowserRouter>
