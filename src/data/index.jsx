@@ -93,6 +93,14 @@ export const tools = [
         description: "Add text on start and end of text.",
         icon: <TbTextPlus strokeWidth={1.5} className="h-7 w-7 text-cyan-500" />,
     },
+    {
+        id: 10,
+        title: "SQL to Excel",
+        tagId: 1,
+        link: "/sql-to-excel",
+        description: "",
+        icon: <TbTextPlus strokeWidth={1.5} className="h-7 w-7 text-cyan-500" />,
+    },
 ].sort((a, b) => a.title.localeCompare(b.title));
 
 export const tags = [

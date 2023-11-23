@@ -9,8 +9,9 @@ import SqlFormatter from "./SqlFormatter";
 import TextCount from "./TextCount";
 import TextTransform from "./TextTransform";
 import TextAdded from "./TextAdded";
+import SqlToExcel from "./SqlToExcel";
 
 export {
     Home, ColorExtractor, ColorSimilarity, ExcelToSql, GearCalc,
-    QrcodeScanner, RemoveNewline, SqlFormatter, TextCount, TextTransform, TextAdded
+    QrcodeScanner, RemoveNewline, SqlFormatter, TextCount, TextTransform, TextAdded, SqlToExcel
 };
