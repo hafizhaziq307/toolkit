@@ -1,35 +1,29 @@
 {
-	"name": "toolkit",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"tauri": "tauri",
-		"watch": "npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch --minify"
-	},
-	"dependencies": {
-		"@tauri-apps/api": "^1.5.1",
-		"file-saver": "^2.0.5",
-		"qr-scanner": "^1.4.2",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-excel-renderer": "^1.1.0",
-		"react-icons": "^4.8.0",
-		"react-router-dom": "^6.11.1",
-		"simplebar-react": "^3.2.4",
-		"sql-formatter": "^12.2.0"
-	},
-	"devDependencies": {
-		"@tauri-apps/cli": "^1.5.6",
-		"@types/react": "^18.0.15",
-		"@types/react-dom": "^18.0.6",
-		"@vitejs/plugin-react": "^3.0.0",
-		"autoprefixer": "^10.4.16",
-		"postcss": "^8.4.31",
-		"tailwindcss": "^3.3.5",
-		"vite": "^4.2.1"
-	}
+  "name": "toolkit",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "watch": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch --minify"
+  },
+  "dependencies": {
+    "svrollbar": "^0.12.0",
+    "@tabler/icons-svelte": "^2.46.0",
+    "@tauri-apps/api": "^1.4.0",
+    "file-saver": "^2.0.5",
+    "qr-scanner": "^1.4.2",
+    "sql-formatter": "^12.2.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@tauri-apps/cli": "^1.4.0",
+    "svelte": "^4.0.5",
+    "svelte-routing": "^2.11.0",
+    "tailwindcss": "^3.4.1",
+    "vite": "^4.4.4"
+  }
 }
