@@ -2,7 +2,7 @@
     import ClearButton from "../lib/buttons/Clear.svelte";
     import CopyButton from "../lib/buttons/Copy.svelte";
     import PageTitle from "../lib/PageTitle.svelte";
-    import { isEmpty } from "../assets/js/helper.js";
+    import { isEmpty, copy } from "../assets/js/helper.js";
     
     let color = "";
     let image;
@@ -62,13 +62,6 @@
         };
     };
     
-    const copy = () => {
-        navigator.clipboard.writeText(color).then(
-            () => alert(`Copied!`),
-            (err) => alert(`Copy failed! ${err}`)
-        );
-    };
-    
     const clear = () => {
         image.src = "";
         color = "";
@@ -95,7 +88,7 @@
                 <span class="text-xl">{color}</span>
             </div>
 
-            <CopyButton on:click={copy} />
+            <CopyButton on:click={() => copy(color)} />
         </footer>
     {/if}
 </div>

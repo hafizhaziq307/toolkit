@@ -5,7 +5,7 @@ mod api;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![])
+        .invoke_handler(tauri::generate_handler![api::image_format_converter])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

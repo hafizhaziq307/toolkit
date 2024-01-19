@@ -26,20 +26,13 @@
     const clear = () => {
         text = "";
     };
-
-    const copy = () => {
-        navigator.clipboard.writeText(text).then(
-            () => alert(`Copied!`),
-            (err) => alert(`Copy failed! ${err}`)
-        );
-    };
 </script>
 
 <PageTitle title="Text Transforms" />
 
 <div class="card mb-4">
     <header class="card-header flex justify-end">
-        <CopyButton on:click={copy} />
+        <CopyButton on:click={() => copy(text)} />
         <ClearButton on:click={clear} />
     </header>
 

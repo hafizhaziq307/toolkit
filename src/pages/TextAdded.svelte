@@ -2,7 +2,7 @@
     import PageTitle from "../lib/PageTitle.svelte";
     import ClearButton from "../lib/buttons/Clear.svelte";
     import CopyButton from "../lib/buttons/Copy.svelte";
-    import { isEmpty } from "../assets/js/helper.js";
+    import { isEmpty, copy } from "../assets/js/helper.js";
 
     let text = "";
     let rowType = "";
@@ -33,13 +33,6 @@
         start = "";
         end = "";
     };
-
-    const copy = () => {
-        navigator.clipboard.writeText(text).then(
-            () => alert(`Copied!`),
-            (err) => alert(`Copy failed! ${err}`)
-        );
-    };
 </script>
 
 <PageTitle title="Text Added" />
@@ -54,7 +47,7 @@
             </select>
 
             <div class="flex">
-                <CopyButton on:click={copy} />
+                <CopyButton on:click={() => copy(text)} />
                 <ClearButton on:click={clear} />
             </div>
         </div>

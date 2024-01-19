@@ -4,7 +4,7 @@
     import ClearButton from "../lib/buttons/Clear.svelte";
     import CopyButton from "../lib/buttons/Copy.svelte";
     import { format } from 'sql-formatter';
-    import { isEmpty } from "../assets/js/helper.js";
+    import { isEmpty, copy } from "../assets/js/helper.js";
     
     let text = "";
     let formatTo = "";
@@ -22,13 +22,6 @@
         text = "";
         formatTo = "";
     };
-
-    const copy = () => {
-        navigator.clipboard.writeText(text).then(
-            () => alert(`Copied!`),
-            (err) => alert(`Copy failed! ${err}`)
-        );
-    };
 </script>
 
 <PageTitle title="SQL Formatter" />
@@ -44,7 +37,7 @@
         </select>
 
         <div class="flex">
-            <CopyButton on:click={copy} />
+            <CopyButton on:click={() => copy(text)} />
             <ClearButton on:click={clear} />
         </div>
     </header>

@@ -22,3 +22,11 @@ export const fillEmptySlots = (arr, replaceWith = "") => {
         else return arr[i];
     });
 };
+
+
+export const copy = (x) => {
+    navigator.clipboard.writeText(x).then(
+        () => alert(`Copied!`),
+        (err) => alert(`Copy failed! ${err}`)
+    );
+};

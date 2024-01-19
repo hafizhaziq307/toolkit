@@ -11,6 +11,7 @@
     import TextCount from "./pages/TextCount.svelte";
     import TextTransform from "./pages/TextTransform.svelte";
     import TextAdded from "./pages/TextAdded.svelte";
+    import ImageFormatConverter from "./pages/ImageFormatConverter.svelte";
   
     export let url = "";
   </script>
@@ -27,5 +28,6 @@
         <Route path="/text-count" component={TextCount} />
         <Route path="/text-transform" component={TextTransform} />
         <Route path="/text-added" component={TextAdded} />
+        <Route path="/image-format-converter" component={ImageFormatConverter} />
     </div>
   </Router>

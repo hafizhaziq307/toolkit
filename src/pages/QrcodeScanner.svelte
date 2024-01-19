@@ -5,8 +5,6 @@
     import { isEmpty } from "../assets/js/helper.js";
     import PageTitle from "../lib/PageTitle.svelte";
 
-    // const uploadFileRef = useRef();
-
     let image = "";
     let url = "";
     let files = [];
