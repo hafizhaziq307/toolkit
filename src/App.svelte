@@ -4,7 +4,7 @@
     import Home from "./pages/Home.svelte";
     import ColorExtractor from "./pages/ColorExtractor.svelte";
     import ColorSimilarity from "./pages/ColorSimilarity.svelte";
-    // import ExcelToSql from "./pages/ExcelToSql.svelte";
+    import ExcelToSql from "./pages/ExcelToSql.svelte";
     import QrcodeScanner from "./pages/QrcodeScanner.svelte";
     import RemoveNewline from "./pages/RemoveNewline.svelte";
     import SqlFormatter from "./pages/SqlFormatter.svelte";
@@ -21,7 +21,7 @@
         <Route path="/" component={Home} />
         <Route path="/color-extractor" component={ColorExtractor} />
         <Route path="/color-similarity" component={ColorSimilarity} />
-        <!-- <Route path="/excel-to-sql" component={ExcelToSql} /> -->
+        <Route path="/excel-to-sql" component={ExcelToSql} />
         <Route path="/qrcode-scanner" component={QrcodeScanner} />
         <Route path="/remove-newline" component={RemoveNewline} />
         <Route path="/sql-formatter" component={SqlFormatter} />

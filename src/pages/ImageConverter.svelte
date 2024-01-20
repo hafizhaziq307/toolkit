@@ -44,6 +44,11 @@
 
         isOpen = false;
     }
+
+    const clear = () => {
+        path = "";
+        convertTo = "";
+    }
 </script>
 
 <PageTitle title="Image Format Converter" />
@@ -59,6 +64,8 @@
             <option value="webp">webp</option>
             <option value="ico">ico</option>
         </select>
+
+        <ClearButton on:click={clear} />
     </header>
 
     <div class="card-body space-y-4 {path ? '' : 'hidden'}">
@@ -66,7 +73,7 @@
     </div>
 
     <footer class="card-footer">
-        <button class="btn-primary" on:click={run}>Download</button>
+        <button class="btn-primary" on:click={run} disabled={(isEmpty(path) || isEmpty(convertTo)) ? 'disabled' : ''}>Download</button>
     </footer>
 </div>
 

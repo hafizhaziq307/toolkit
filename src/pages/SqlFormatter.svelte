@@ -7,20 +7,20 @@
     import { isEmpty, copy } from "../assets/js/helper.js";
     
     let text = "";
-    let formatTo = "";
+    let convertTo = "";
 
     const execute = () => {
-        if (isEmpty(formatTo)) {
+        if (isEmpty(convertTo)) {
             alert("Choose database type to format!");
             return;
         }
 
-        text = format(text, { language: formatTo, keywordCase: "upper" });
+        text = format(text, { language: convertTo, keywordCase: "upper" });
     };
 
     const clear = () => {
         text = "";
-        formatTo = "";
+        convertTo = "";
     };
 </script>
 
@@ -28,7 +28,7 @@
 
 <div class="card mb-4">
     <header class="card-header flex justify-between gap-2">
-        <select bind:value={formatTo}>
+        <select bind:value={convertTo}>
             <option value="" disabled selected>convert to</option>
             <option value="tsql">SQL Server</option>
             <option value="postgresql">PostgreSQL</option>
@@ -42,11 +42,11 @@
         </div>
     </header>
 
-    <div class="card-body space-y-4">
+    <div class="card-body">
         <textarea bind:value={text} rows="15" placeholder="Write something..."></textarea>
-
-        <div>
-            <button on:click={execute} class="btn-primary">Format</button>
-        </div>
     </div>
+    
+    <footer class="card-footer">
+        <button on:click={execute} class="btn-primary" disabled={(isEmpty(text) || isEmpty(convertTo)) ? 'disabled' : ''}>Format</button>
+    </footer>
 </div>

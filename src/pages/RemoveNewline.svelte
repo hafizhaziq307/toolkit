@@ -2,9 +2,8 @@
     import ClearButton from "../lib/buttons/Clear.svelte";
     import CopyButton from "../lib/buttons/Copy.svelte";
     import PageTitle from "../lib/PageTitle.svelte";
-    import { copy } from "../assets/js/helper.js";
+    import { isEmpty, copy } from "../assets/js/helper.js";
 
-    
     let text = "";
 
     const removeAllNewlines = () => {
@@ -24,11 +23,11 @@
         <ClearButton on:click={clear} />
     </header>
 
-    <div class="card-body space-y-4">
+    <div class="card-body">
         <textarea bind:value={text} rows="15" placeholder="Write something..."></textarea>
-
-        <div>
-            <button on:click={removeAllNewlines}>Remove All Newlines</button>
-        </div>
     </div>
+    
+    <footer class="card-footer">
+        <button on:click={removeAllNewlines} class="btn-primary" disabled={isEmpty(text) ? 'disabled' : ''}>Remove All Newlines</button>
+    </footer>
 </div>

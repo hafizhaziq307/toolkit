@@ -19,7 +19,7 @@
 	}
 
 	.card .card-footer {
-		@apply border-t border-gray-600 px-2 py-3;
+		@apply border-t border-gray-600 p-2;
 	}
 
     select {
@@ -39,6 +39,6 @@
     }
 
     .btn-primary {
-        @apply w-full rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-500;
+        @apply w-full rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-blue-600 disabled:brightness-50;
     }
 }

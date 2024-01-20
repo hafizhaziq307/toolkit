@@ -42,8 +42,8 @@
         <div class="flex justify-between gap-2">
             <select bind:value={rowType}>
                 <option value="" disabled selected>Choose rowType</option>
-                <option value="1">single-rowType</option>
-                <option value="2">multi-rows</option>
+                <option value="1">One Row</option>
+                <option value="2">Every Rows</option>
             </select>
 
             <div class="flex">
@@ -56,14 +56,14 @@
     <div class="card-body space-y-4">
         <div class="grid grid-cols-3 gap-2 items-center">
             <input type="text" placeholder="Start" bind:value={start} />
-            <div class="text-center truncate">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti, modi.</div>
+            <div class="text-center truncate">Your text is here!</div>
             <input type="text" placeholder="End" bind:value={end} />
         </div>
 
         <textarea bind:value={text} rows="15" placeholder="Write something..."></textarea>
-
-        <div>
-            <button on:click={addText} class="btn-primary">Add</button>
-        </div>
     </div>
+    
+    <footer class="card-footer">
+        <button on:click={addText} class="btn-primary"disabled={(isEmpty(text) || isEmpty(rowType) || isEmpty(start) || isEmpty(end)) ? 'disabled' : ''}>Add</button>
+    </footer>
 </div>

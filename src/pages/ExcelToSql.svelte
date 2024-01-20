@@ -1,117 +1,67 @@
-<!-- <script>
-    import { ExcelRenderer } from "react-excel-renderer";
+<script>
     import ClearButton from "../lib/buttons/Clear.svelte";
     import PageTitle from "../lib/PageTitle.svelte";
-    import { isEmpty, saveFile, fillEmptySlots } from "../assets/js/helper.js";
+    import { isEmpty, saveFile, convertExcelToJson } from "../assets/js/helper.js";
+    import LoadingModal from "../lib/modals/Loading.svelte";
 
     let files;
     let tablename = "";
-    let uploadFile = "";
     let convertTo = "";
-    
-    const [rows, setRows] = useState([]);
-    const [fields, setFields] = useState([]);
-    const [values, setValues] = useState([]);
-    
-    const uploadFileRef = useRef();
-    
-    useEffect(() => {
-        if (isEmpty(rows)) return;
-    
-        let temp = rows;
-        setFields(temp[0]);
-    
-        temp.shift();
-        setValues(temp);
-    }, [rows]);
-    
-    useEffect(() => {
-        if (isEmpty(fields) || isEmpty(values)) return;
-    
-        let content = "";
+    let isOpen = false;
+
+    const run = async() => {
+        isOpen = true;
+        const file = files[0];
+
+        const data = await convertExcelToJson(file);
+
         switch (convertTo) {
             case "sql server":
-                content = convertToSqlServer(tablename, fields, values);
+                const content = convertToSqlServer(tablename, data);
+                saveFile(content, `${tablename}.sql`);
                 break;
     
             default:
-                content = "error occurs!";
+                console.error("error!");
                 break;
         }
-    
-        saveFile(content, `${tablename}.sql`);
-    }, [fields, values]);
-    
-    const renderFile = () => {
-        if (
-            isEmpty(tablename) ||
-            isEmpty(convertTo) ||
-            isEmpty(uploadFileRef.current.value)
-        ) {
-            alert("Please fill all the form!");
-            return;
-        }
-    
-        ExcelRenderer(uploadFile, (err, resp) => {
-            if (err) {
-                alert(err);
-            } else {
-                let rows = resp.rows
-                    .filter((item) => !isEmpty(item)) // remove empty cell
-                    .map((row) => fillEmptySlots(row, "NULL")); // change undefined to ""
-    
-                // change ' ' to 'NULL'
-                rows = rows.map((fields) =>
-                    fields.map((field) => {
-                        if (typeof field != "string") return field;
-                        if (!isEmpty(field.trim())) return field;
-                        return "NULL";
-                    })
-                );
-    
-                setRows(rows);
-            }
-        });
-    };
-    
-    const convertToSqlServer = (
-        tablename,
-        fields,
-        listValues
-    ) => {
-        const columns = fields.map((field) => `[${field}]`).join(", ");
-    
+
+        isOpen = false;
+    }
+
+    const convertToSqlServer = (tablename, data) => {
+        const headers = Object.values(data[0]);
+
+        data.shift(); // remove header columns
+
         let queries = [];
-        for (let values of listValues) {
-            values = values.map((value) => `N'${value}'`).join(", ");
-    
+        for (let i = 0; i < data.length; i++) {
+            const row = Object.values(data[i]).map(x => `N'${x}'`);
+
             queries.push(
-                `INSERT INTO [dbo].[${tablename}] (${columns}) VALUES (${values});`
+                `INSERT INTO [dbo].[${tablename}] (${headers.join(", ")}) VALUES (${row.join(", ")});`
             );
         }
-    
+
         return queries.join("\r\n");
     };
-    
+
     const clear = () => {
-        uploadFileRef.current.value = "";
-        table = "";
-        uploadFile = "";
+        files = [];
+        tablename ="";
         convertTo = "";
-        fields = [];
-        values = [];
-    };
+    }
 </script>
 
 <PageTitle title="Excel to SQL" />
 
-<div class=" card">
+<div class="card">
     <header class="card-header flex justify-end">
         <ClearButton on:click={clear} />
     </header>
 
     <div class="card-body space-y-4">
-        <input type="file" bind:files={files} accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <input type="file" bind:files={files} accept=".xlsx, .xls" />
 
         <div class="grid grid-cols-2 gap-4">
             <input type="text" bind:value={tablename} placeholder="table name">
@@ -121,42 +71,11 @@
                 <option value="sql server">SQL Server</option>
             </select>
         </div>
-
-        <button class="btn-primary" on:click={renderFile}>Convert</button>
     </div>
-</div> -->
+    
+    <footer class="card-footer">
+        <button class="btn-primary" on:click={run} disabled={(isEmpty(tablename) || isEmpty(convertTo) || isEmpty(files)) ? 'disabled' : ''}>Convert</button>
+    </footer>
+</div>
 
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
-<script>
-var ExcelToJSON = function() {
-
-  this.parseExcel = function(file) {
-    var reader = new FileReader();
-
-    reader.onload = function(e) {
-      var data = e.target.result;
-      var workbook = XLSX.read(data, {
-        type: 'binary'
-      });
-
-      workbook.SheetNames.forEach(function(sheetName) {
-        // Here is your object
-        var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-        var json_object = JSON.stringify(XL_row_object);
-        console.log(json_object);
-
-      })
-
-    };
-
-    reader.onerror = function(ex) {
-      console.log(ex);
-    };
-
-    reader.readAsBinaryString(file);
-  };
-};
-</script>
+<LoadingModal open={isOpen} />

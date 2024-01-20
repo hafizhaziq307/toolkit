@@ -37,7 +37,7 @@
     </header>
 
     <div class="card-body">
-        <textarea bind:value={word} on:change={handleChange} rows="15" placeholder="Write something..."></textarea>
+        <textarea bind:value={word} on:input={handleChange} rows="15" placeholder="Write something..."></textarea>
     </div>
 
     <footer class="card-footer grid grid-cols-3 divide-x-2 divide-gray-600">

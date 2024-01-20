@@ -88,8 +88,7 @@
                             </header>
 
                             <div class="h-3 w-full overflow-hidden rounded-full bg-gray-700">
-                                <div class="h-full bg-blue-600" style={{ width: color.percentage + "80%" }}
-                                />
+                                <div class="h-full bg-blue-600" style={{ width: color.percentage + "80%" }}/>
                             </div>
                         </div>
                     </article>

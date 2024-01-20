@@ -2,6 +2,7 @@
     import PageTitle from "../lib/PageTitle.svelte";
     import ClearButton from "../lib/buttons/Clear.svelte";
     import CopyButton from "../lib/buttons/Copy.svelte";
+    import { isEmpty, copy } from "../assets/js/helper.js";
 
     let text = "";
 
@@ -38,11 +39,11 @@
 
     <div class="card-body space-y-4">
         <textarea bind:value={text} rows="15" placeholder="Write something..."></textarea>
-
-        <div class="flex gap-2">
-            <button on:click={capitalize} class="btn-primary">Capitalize</button>
-            <button on:click={lowercase} class="btn-primary">Lowercase</button>
-            <button on:click={uppercase} class="btn-primary">Uppercase</button>
-        </div>
     </div>
+    
+    <footer class="card-footer flex gap-2">
+        <button on:click={capitalize} class="btn-primary" disabled={isEmpty(text) ? 'disabled' : ''}>Capitalize</button>
+        <button on:click={lowercase} class="btn-primary" disabled={isEmpty(text) ? 'disabled' : ''}>Lowercase</button>
+        <button on:click={uppercase} class="btn-primary" disabled={isEmpty(text) ? 'disabled' : ''}>Uppercase</button>
+    </footer>
 </div>
