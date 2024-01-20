@@ -11,7 +11,7 @@
         if (id == 0) {
             filteredTools = tools
         } else {
-            filteredTools = tools.filter((tool) => tool.tagId === id)
+            filteredTools = tools.filter(x => x.tagId == id)
         }
        
         activeTagId = id;
@@ -35,7 +35,7 @@
 
 <Svroller alwaysVisible={true} class="p-4" width="1" height="77vh" margin={{ right: 2 }}>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {#each tools as tool}
+        {#each filteredTools as tool}
             <Tool tool={tool} />
         {/each}
     </div>

@@ -11,12 +11,13 @@
     "watch": "npx tailwindcss -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch --minify"
   },
   "dependencies": {
-    "svrollbar": "^0.12.0",
     "@tabler/icons-svelte": "^2.46.0",
     "@tauri-apps/api": "^1.4.0",
     "file-saver": "^2.0.5",
     "qr-scanner": "^1.4.2",
-    "sql-formatter": "^12.2.0"
+    "sql-formatter": "^12.2.0",
+    "svrollbar": "^0.12.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.4.2",

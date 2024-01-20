@@ -32,10 +32,13 @@
     "windows": [
       {
         "fullscreen": false,
+        "height": 650,
+        "minHeight": 650,
         "resizable": true,
         "title": "toolkit",
         "width": 800,
-        "height": 600
+        "minWidth": 800,
+        "center": true
       }
     ]
   }
